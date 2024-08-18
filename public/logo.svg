@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 431.78 226.76">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #013333;
+        font-family: Cunia, Cunia;
+        font-size: 72px;
+      }
+
+      .cls-2 {
+        fill: #f8991d;
+        opacity: .7;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer_1">
+    <g id="Logo">
+      <g>
+        <path class="cls-2" d="M195.1,75.38L66.78,1.3c-6.4-3.7-14.41.92-14.41,8.32v148.17c0,7.39,8,12.01,14.41,8.32l128.32-74.08c6.4-3.7,6.4-12.94,0-16.63Z"/>
+        <path class="cls-2" d="M195.1,134.74L66.78,60.65c-6.4-3.7-14.41.92-14.41,8.32v148.17c0,7.39,8,12.01,14.41,8.32l128.32-74.08c6.4-3.7,6.4-12.94,0-16.63Z"/>
+        <path class="cls-2" d="M142.72,105.24L14.41,31.16c-6.4-3.7-14.41.92-14.41,8.32v148.17c0,7.39,8,12.01,14.41,8.32l128.32-74.08c6.4-3.7,6.4-12.94,0-16.63Z"/>
+      </g>
+      <text class="cls-1" transform="translate(222.34 99.89)"><tspan x="0" y="0">Split</tspan><tspan x="0" y="86.4">Code</tspan></text>
+    </g>
+  </g>
+</svg>
