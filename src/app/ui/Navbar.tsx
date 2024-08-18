@@ -20,16 +20,16 @@ const Navbar = () => {
     <nav className=' hidden md:flex justify-between md:items-center p-10 md:mx-[15vw] '>
            <Image src={logo} alt='company logo' className='w-40'/>
         
-            <div className={` flex justify-evenly w-full text-2xl font-rb font-bold text-oliveGreen`} >
+            <div className={` hidden lg:flex justify-evenly w-full text-2xl font-rb font-bold text-oliveGreen`} >
              <Link href="#home">Home</Link>
              <Link href="#About">About</Link>
              <Link href="#How">How it works</Link>
            </div>
             
-            <div className="md:flex hidden">
-              <Button buttonType={"Sign Up"}/>
-              <Button buttonType={"Login"}/>
-            </div>
+
+           <Button buttonType={"Sign Up"}/>
+           <Button buttonType={"Login"}/>
+        
 
 
     </nav>
@@ -40,10 +40,10 @@ const Navbar = () => {
            
 
             <div className='flex justify-between '>
-              <Image src={logo} alt='company logo' className='w-40'/>
+              <Image src={logo} alt='company logo' className='w-32'/>
               <button onClick={() => setIsOpen(!isOpen)}> 
                  {
-                  isOpen ? <IoClose size={70}/> : <FiMenu size={70} />
+                  isOpen ? <IoClose size={50}/> : <FiMenu size={50} />
                  }
               </button>
             </div>
