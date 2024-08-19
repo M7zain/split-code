@@ -1,6 +1,6 @@
 import Hero from "@/app/Sections/Hero";
 import About from "./Sections/About";
-import { TracingBeam } from "./ui/tracing-beam";
+import How from "./Sections/How";
 
 export default function Home() {
   return (  
@@ -8,7 +8,7 @@ export default function Home() {
         
         <Hero/>
         <About/>
-        
+        <How/>
 
       
     </main> 
