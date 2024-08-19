@@ -57,9 +57,9 @@ const Navbar = () => {
           <Link href="#About">About</Link>
           <Link href="#How">How it works</Link>
 
-          <div className='flex space-x-4 mt-3'>
-          <Button buttonType="Sign Up" className='w-32' />
-          <Button buttonType="Login" className='w-32' />
+          <div className='flex space-x-4 mt-3 '>
+          <Button buttonType="Sign Up" className='max-w-32' />
+          <Button buttonType="Login" className='max-w-32' />
         </div>
         
         </div>
