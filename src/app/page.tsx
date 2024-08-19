@@ -3,9 +3,10 @@ import About from "./Sections/About";
 
 export default function Home() {
   return (
-    <div>
-      <Hero/>
-      <About/>
-    </div>
+    <main>
+     
+        <Hero/>
+        <About/>
+    </main>
   );
 }
