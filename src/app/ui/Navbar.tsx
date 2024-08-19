@@ -15,7 +15,7 @@ const Navbar = () => {
   return (
     <>
       {/* Desktop Nav */}
-      <nav className='hidden md:flex justify-between items-center p-10 md:mx-[15vw]'>
+      <nav className='hidden md:flex justify-between items-center p-10 space-x-4 lg:mx-[15vw]'>
         <Image 
           src={logo} 
           alt='company logo' 
@@ -23,7 +23,7 @@ const Navbar = () => {
           priority
         />
 
-        <div className='hidden lg:flex justify-evenly w-full text-2xl font-rb font-bold text-oliveGreen'>
+        <div className='hidden md:hidden lg:hidden 2xl:flex  justify-evenly w-full text-2xl font-rb font-bold text-oliveGreen'>
           <Link href="#home">Home</Link>
           <Link href="#About">About</Link>
           <Link href="#How">How it works</Link>
@@ -56,7 +56,15 @@ const Navbar = () => {
           <Link href="#home">Home</Link>
           <Link href="#About">About</Link>
           <Link href="#How">How it works</Link>
+
+          <div className='flex space-x-4 mt-3'>
+          <Button buttonType="Sign Up" className='w-32' />
+          <Button buttonType="Login" className='w-32' />
         </div>
+        
+        </div>
+
+
       </nav>
     </>
   )
