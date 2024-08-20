@@ -9,7 +9,7 @@ interface TracingBeamProps {
 }
 
 export const TracingBeam: React.FC<TracingBeamProps> = ({
-  height = 500,
+  height = 700,
   className,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -35,7 +35,7 @@ export const TracingBeam: React.FC<TracingBeamProps> = ({
     <motion.div
       ref={ref}
       className={cn(
-        "relative flex justify-center items-center w-full h-full",
+        " flex justify-center items-center px-10 h-full",
         className
       )}
     >
@@ -51,18 +51,18 @@ export const TracingBeam: React.FC<TracingBeamProps> = ({
                 ? "none"
                 : "rgba(0, 0, 0, 0.24) 0px 3px 8px",
           }}
-          className="h-4 w-4 rounded-full border border-neutral-200 shadow-sm flex items-center justify-center"
+          className="h-4 w-4 rounded-full border border-neutral shadow-sm flex items-center justify-center"
         >
           <motion.div
             transition={{
               duration: 0.2,
-              delay: 0.5,
+              delay: 0.2,
             }}
             animate={{
               backgroundColor:
-                scrollYProgress.get() > 0 ? "white" : "#FB8500", // Emerald-500
+                scrollYProgress.get() > 0 ? "white" : "#FB8500", // splitorange
               borderColor:
-                scrollYProgress.get() > 0 ? "white" : "#FB8500", // Emerald-600
+                scrollYProgress.get() > 0 ? "white" : "#FB8500", // splitorange
             }}
             className="h-2 w-2 rounded-full border border-neutral-300 bg-white"
           />
