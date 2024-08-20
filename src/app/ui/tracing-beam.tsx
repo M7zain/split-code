@@ -9,7 +9,7 @@ interface TracingBeamProps {
 }
 
 export const TracingBeam: React.FC<TracingBeamProps> = ({
-  height = 700,
+  height = 1000,
   className,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
