@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="176.62" height="179.363" viewBox="0 0 176.62 179.363">
+  <g id="tasks_icon" data-name="tasks icon" transform="translate(55.177 -40.8)">
+    <g id="Group_2" data-name="Group 2" transform="translate(-55.177 40.8)">
+      <path id="Path_38" data-name="Path 38" d="M170.338,38.47H100.4V6.382A6.674,6.674,0,0,0,93.821-.2H6.882A6.674,6.674,0,0,0,.3,6.382V114.164a6.674,6.674,0,0,0,6.582,6.582H32.936v51.834a6.674,6.674,0,0,0,6.582,6.582h86.939a6.674,6.674,0,0,0,6.582-6.582V159.416h37.3a6.674,6.674,0,0,0,6.582-6.582V45.052A6.674,6.674,0,0,0,170.338,38.47ZM6.882,116.633a2.458,2.458,0,0,1-2.468-2.468V6.382A2.458,2.458,0,0,1,6.882,3.914H93.821a2.458,2.458,0,0,1,2.468,2.468V38.47H83.4a6.674,6.674,0,0,0-6.582,6.582V58.216h-37.3A6.674,6.674,0,0,0,32.936,64.8v51.834H6.882Zm122.043,55.948a2.458,2.458,0,0,1-2.468,2.468H39.518a2.458,2.458,0,0,1-2.468-2.468V64.8a2.458,2.458,0,0,1,2.468-2.468h37.3V77.963H45.826v4.114H76.817v14.81H45.826V101H76.817v14.81H45.826v4.114H76.817v14.81H45.826v4.114H76.817v13.987a6.674,6.674,0,0,0,6.582,6.582h45.526Zm43.881-19.746a2.458,2.458,0,0,1-2.468,2.468H83.4a2.458,2.458,0,0,1-2.468-2.468V45.052A2.458,2.458,0,0,1,83.4,42.584h86.939a2.458,2.458,0,0,1,2.468,2.468Z" transform="translate(-0.3 0.2)" fill="#fb8500"/>
+      <rect id="Rectangle_73" data-name="Rectangle 73" width="73.226" height="4.114" transform="translate(89.956 55.125)" fill="#fb8500"/>
+      <rect id="Rectangle_74" data-name="Rectangle 74" width="73.226" height="4.114" transform="translate(89.956 72.678)" fill="#fb8500"/>
+      <rect id="Rectangle_75" data-name="Rectangle 75" width="73.226" height="4.114" transform="translate(89.956 89.956)" fill="#fb8500"/>
+      <rect id="Rectangle_76" data-name="Rectangle 76" width="73.226" height="4.114" transform="translate(89.956 107.508)" fill="#fb8500"/>
+      <rect id="Rectangle_77" data-name="Rectangle 77" width="57.045" height="4.114" transform="translate(98.183 124.786)" fill="#fb8500"/>
+      <rect id="Rectangle_78" data-name="Rectangle 78" width="73.226" height="4.114" transform="translate(13.438 16.455)" fill="#fb8500"/>
+      <rect id="Rectangle_79" data-name="Rectangle 79" width="58.965" height="4.114" transform="translate(13.438 31.814)" fill="#fb8500"/>
+      <rect id="Rectangle_80" data-name="Rectangle 80" width="48.817" height="4.114" transform="translate(13.438 46.898)" fill="#fb8500"/>
+    </g>
+  </g>
+</svg>
