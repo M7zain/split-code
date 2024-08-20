@@ -1,99 +1,78 @@
-import React from 'react'
-import { TracingBeam } from '../ui/tracing-beam'
-import Image from 'next/image'
-import cloud from "../../../public/images/cloud.svg"
-
-import { howLeft, howRight } from '@/constants'
+import React from 'react';
+import { TracingBeam } from '../ui/tracing-beam';
+import Image from 'next/image';
+import { howLeft, howRight } from '@/constants';
 
 const How = () => {
   return (
-<section className='flex flex-col items-center justify-center px-[15vw] lg:px-[30vw]  mt-20 ' id='How'>
-        <h1 className='text-4xl lg:text-6xl  font-rb font-bold text-oliveGreen  '> 
-          How Split Code Works? 
-        </h1>
+    <section className='flex flex-col items-center justify-center p-10 md:p-20 w-screen' id='How'>
+      <h1 className='text-2xl md:text-4xl lg:text-6xl text-center font-rb font-bold text-oliveGreen'> 
+        How <span className='text-splitOrange'>Split Code</span> Works?
+      </h1>   
 
-        <div className='flex  mt-20'>
-                
-                {/* Left side */}
-                <div >
-                  {
-                    howLeft.map((item) => (
-
-
-                  <div key={item.id} className='flex flex-col items-end  '>
-                        <Image src={item.imgURL} alt="cloud image" />
-                        
-                        <div className='flex flex-col items-end my-20'>
-                        {/* number of the step */}
-                        <div className='flex items-center justify-center bg-splitOrange p-1 rounded-full w-10 h-10'>
-                          <p className=' text-white text-center '>
-                            {item.id}
-                          </p>
-                        </div>
-
-                        <h3 className='font-rb text-lg font-bold text-nowrap'>
-                          {item.title}
-                        </h3>
-                        <p className='font-rb text-sm text-right'>
-                          {item.description}
-                        </p>
-
-
-                        </div>
-                  </div>
-                    ))
-                  }
-
-
+      <div className='flex flex-row justify-center items-center mt-10 md:mt-20 w-full'>
+        
+        {/* Left side */}
+        <div className='flex flex-col items-end w-full md:w-1/2 px-4'>
+          {howLeft.map((item) => (
+            <div key={item.id} className='flex flex-col items-end mb-10 md:mb-20'>
+              <Image src={item.imgURL} alt={`${item.title} image`} className='w-36 h-36 md:w-40 md:h-40' />
+              
+              <div className='flex flex-col items-end my-10 md:my-20'>
+                {/* number of the step */}
+                <div className='flex items-center justify-center bg-splitOrange p-1 rounded-full w-8 h-8 md:w-10 md:h-10'>
+                  <p className='text-white text-center'>
+                    {item.id}
+                  </p>
                 </div>
-
-
                 
-                 
+                {/* title  */}
+                <h3 className='font-rb text-lg font-bold text-right mt-3'>
+                  {item.title}
+                </h3>
 
-                 {/* the tracing beam */}
-                 <TracingBeam/>
-                 
-               
-
-                 {/* Right side  */}
-
-                <div>   
-                  { 
-                    howRight.map((item) => ( 
-                      <div key={item.id}>
-                         {/* number of the step */}
-                    <div className='flex items-center justify-center bg-splitOrange p-1 rounded-full w-10 h-10'>
-                     <p className=' text-white text-center '>
-                        {item.id}
-                      </p>
-                     </div>
-
-                     <h3 className='font-rb text-lg font-bold text-nowrap'>
-                        {item.title}
-                     </h3>
-                    <p className='font-rb text-sm'>
-                    Describe your project needs, set your budget, 
-                    and let us connect you with top freelancers.
-                    </p>
-
-                    <Image src={item.imgURL} alt="cloud image" className='my-20'/>
-
-                      </div>
-                    )) 
-                  }
-                   
-
-                </div>
-
-
-                
-
-
-
+                {/* description */}
+                <p className='font-rb text-sm text-right max-w-xs mt-3'>
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
+
+        {/* Tracing Beam */}
+        <div className=' md:flex w-full md:w-auto justify-center'>
+          <TracingBeam />
+        </div>
+
+        {/* Right side */}
+        <div className='flex flex-col items-start w-full md:w-1/2 px-4 mt-10 md:mt-0'>
+          {howRight.map((item) => (
+            <div key={item.id} className='flex flex-col items-start mb-10 md:mb-20'>
+              {/* number of the step */}
+              <div className='flex items-center justify-center bg-splitOrange p-1 rounded-full w-8 h-8 md:w-10 md:h-10'>
+                <p className='text-white text-center'>
+                  {item.id}
+                </p>
+              </div>
+
+              {/* title  */}
+              <h3 className='font-rb text-lg font-bold text-left mt-3'>
+                {item.title}
+              </h3>
+
+              {/* description */}
+              <p className='font-rb text-sm text-left max-w-xs mt-3'>
+                {item.description}
+              </p>
+
+              <Image src={item.imgURL} alt={`${item.title} image`} className='w-36 h-36 md:w-40 md:h-40 my-10 md:my-20' />
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   )
 }
 
-export default How
+export default How;
