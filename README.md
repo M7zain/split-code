@@ -1,5 +1,5 @@
 <div align="center">
-Welcome to React Bits, your go-to for animated React components, and other goodies!
+Welcome to Split Code, where we connect developers together!
 </div>
 
 <div align="center">
