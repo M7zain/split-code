@@ -13,7 +13,7 @@ const How = () => {
       <div className='flex flex-row justify-center items-center mt-10 md:mt-20 w-full'>
         
         {/* Left side */}
-        <div className='flex flex-col items-end w-full md:w-1/2 px-4'>
+        <div className='flex flex-col items-end w-full md:w-1/2 '>
           {howLeft.map((item) => (
             <div key={item.id} className='flex flex-col items-end mb-10 md:mb-20'>
               <Image src={item.imgURL} alt={`${item.title} image`} className='w-36 h-36 md:w-40 md:h-40' />
@@ -41,12 +41,12 @@ const How = () => {
         </div>
 
         {/* Tracing Beam */}
-        <div className=' md:flex w-full md:w-auto justify-center'>
+        <div className=' md:flex w-auto justify-center'>
           <TracingBeam />
         </div>
 
         {/* Right side */}
-        <div className='flex flex-col items-start w-full md:w-1/2 px-4 mt-10 md:mt-0'>
+        <div className='flex flex-col items-start w-full md:w-1/2 mt-10 md:mt-0'>
           {howRight.map((item) => (
             <div key={item.id} className='flex flex-col items-start mb-10 md:mb-20'>
               {/* number of the step */}
