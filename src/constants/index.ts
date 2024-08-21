@@ -1,4 +1,3 @@
-import { MdDescription } from "react-icons/md";
 import { cloud, launch, tasks ,track  } from "../../public/images";
 import { 
 
@@ -8,6 +7,14 @@ import {
     cost,
 
 } from '../../public/images'
+
+import { 
+    facebook, 
+    instagram, 
+    twitter, 
+} from '../../public/icons/index'
+
+
 
 export const howLeft = [
     { 
@@ -74,3 +81,30 @@ export const cardInfo = [
         description: "Benefit from the collective knowledge and skills of multiple developers, each focusing on what they do best."
     }, 
 ]
+
+
+export const footerLinks = [
+  {
+        title: "Help",
+        links: [
+            { name: "About us", link: "/" },
+            { name: "FAQs", link: "/" },
+            { name: "How it works", link: "/" },
+            { name: "Privacy policy", link: "/" },
+            { name: "Payment policy", link: "/" },
+        ],
+    },
+    {
+        title: "Get in touch",
+        links: [
+            { name: "zeynkara91@gmail.com", link: "mailto:zeynkara91@gmail.com" },
+        ],
+    },
+];
+
+
+export const socialMedia = [
+    { src: facebook, alt: "facebook logo" },
+    { src: twitter, alt: "twitter logo" },
+    { src: instagram, alt: "instagram logo" },
+];
