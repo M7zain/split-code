@@ -50,21 +50,25 @@ export const howRight = [
 
 export const cardInfo = [ 
     { 
+        id: '1',
         imgURL:collab, 
         title: "Collaborative Expertise:", 
         description: "Benefit from the collective knowledge and skills of multiple developers, each focusing on what they do best."
     }, 
     { 
+        id: '2',
         imgURL:speed, 
         title: "Efficiency and Speed", 
         description: "By splitting tasks among specialists, we deliver high-quality results faster."
     }, 
     { 
+        id: '3',
         imgURL:transparancy, 
         title: "Transparent Workflow:", 
         description: "Our platform ensures clear communication and real-time updates, keeping you in control."
     }, 
     { 
+        id: '4',
         imgURL:cost, 
         title: "Cost-Effective Solutions:", 
         description: "Benefit from the collective knowledge and skills of multiple developers, each focusing on what they do best."
