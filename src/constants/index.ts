@@ -1,7 +1,13 @@
 import { MdDescription } from "react-icons/md";
 import { cloud, launch, tasks ,track  } from "../../public/images";
+import { 
 
+    collab, 
+    speed,
+    transparancy, 
+    cost,
 
+} from '../../public/images'
 
 export const howLeft = [
     { 
@@ -39,4 +45,28 @@ export const howRight = [
         description: "Use our platform to monitor progress, communicate with your team, and make adjustments in real-time.", 
 
     },
+]
+
+
+export const cardInfo = [ 
+    { 
+        imgURL:collab, 
+        title: "Collaborative Expertise:", 
+        description: "Benefit from the collective knowledge and skills of multiple developers, each focusing on what they do best."
+    }, 
+    { 
+        imgURL:speed, 
+        title: "Efficiency and Speed", 
+        description: "By splitting tasks among specialists, we deliver high-quality results faster."
+    }, 
+    { 
+        imgURL:transparancy, 
+        title: "Transparent Workflow:", 
+        description: "Our platform ensures clear communication and real-time updates, keeping you in control."
+    }, 
+    { 
+        imgURL:cost, 
+        title: "Cost-Effective Solutions:", 
+        description: "Benefit from the collective knowledge and skills of multiple developers, each focusing on what they do best."
+    }, 
 ]
