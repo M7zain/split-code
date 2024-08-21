@@ -1,4 +1,14 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
+Welcome to React Bits, your go-to for animated React components, and other goodies!
+</div>
+
+<div align="center">
+	<br>
+	<br>
+	<img src="./public/logo.svg" alt="react-haiku" height="200">
+	<br>
+	<br>
+</div>
 
 ## Getting Started
 
