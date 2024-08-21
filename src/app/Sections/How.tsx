@@ -5,7 +5,7 @@ import { howLeft, howRight } from '@/constants';
 
 const How = () => {
   return (
-    <section className='flex flex-col items-center justify-center p-10 md:p-20 w-screen' id='How'>
+    <section className='flex flex-col items-center justify-center p-10 md:p-20 w-full' id='How'>
       <h1 className='text-2xl md:text-4xl lg:text-6xl text-center font-rb font-bold text-oliveGreen'> 
         How <span className='text-splitOrange'>Split Code</span> Works?
       </h1>   
