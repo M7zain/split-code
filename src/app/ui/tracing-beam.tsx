@@ -49,7 +49,7 @@ export const TracingBeam: React.FC<TracingBeamProps> = ({
             boxShadow:
               scrollYProgress.get() > 0
                 ? "none"
-                : "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+                : "rgba(0, 0, 0, 0.24) 0px 7px 8px",
           }}
           className="h-4 w-4 rounded-full border border-neutral shadow-sm flex items-center justify-center"
         >
