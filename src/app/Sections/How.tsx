@@ -16,7 +16,7 @@ const How = () => {
         <div className='flex flex-col items-end w-full md:w-1/2 '>
           {howLeft.map((item) => (
             <div key={item.id} className='flex flex-col items-end mb-10 md:mb-20'>
-              <Image src={item.imgURL} alt={`${item.title} image`} className='w-36 h-36 md:w-40 md:h-40' />
+              <Image loading='lazy' src={item.imgURL} alt={`${item.title} image`} className='w-36 h-36 md:w-40 md:h-40' />
               
               <div className='flex flex-col items-end my-10 md:my-20'>
                 {/* number of the step */}
@@ -66,7 +66,7 @@ const How = () => {
                 {item.description}
               </p>
 
-              <Image src={item.imgURL} alt={`${item.title} image`} className='w-36 h-36 md:w-40 md:h-40 my-10 md:my-20' />
+              <Image loading='lazy' src={item.imgURL} alt={`${item.title} image`} className='w-36 h-36 md:w-40 md:h-40 my-10 md:my-20' />
             </div>
           ))}
         </div>
