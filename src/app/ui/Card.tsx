@@ -6,7 +6,10 @@ const Card = ({ imgURL, title, description }: { imgURL: string; title: string; d
     <div className="border-2 border-splitOrange rounded-xl my-10 p-5 max-w-96 h-60 shadow-lg">
       <div className="h-full flex flex-col justify-evenly ">
         <div>
-          <Image src={imgURL} alt={title} />
+          <Image 
+                loading='lazy'
+                src={imgURL} 
+                alt={title} />
         </div>
         <div>
           <h4 className="text-lg font-bold font-rb">{title}</h4>
