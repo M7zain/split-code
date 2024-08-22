@@ -14,7 +14,7 @@ const About = () => {
              <p className='text-center lg:text-left text-balance font-rb font-light text-lg max-w-md'>
              Split-Code empowers freelancers by connecting them with exciting projects and a supportive community. We believe in the power of collaboration to elevate every project to its fullest potential. Join Code Split today and take your freelancing career to the next level.
              </p>
-             <Image src={aboutUs}  alt="two people looking at a dashboard" width={300} className='flex lg:hidden '/>
+             <Image loading='lazy' src={aboutUs}  alt="two people looking at a dashboard" width={300} className='flex lg:hidden '/>
              
              <Button buttonType='Join Us' className='max-w-28 text-lg lg:text-xl'/>
           </div>
