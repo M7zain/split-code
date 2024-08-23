@@ -24,14 +24,16 @@ const Navbar = () => {
         />
 
         <div className='hidden md:hidden lg:hidden 2xl:flex  justify-evenly w-full text-2xl font-rb font-bold text-oliveGreen'>
-          <Link href="#home">Home</Link>
-          <Link href="#About">About</Link>
-          <Link href="#How">How it works</Link>
+          <Link href="/#home">Home</Link>
+          <Link href="/#About">About</Link>
+          <Link href="/#How">How it works</Link>
         </div>
 
         <div className='flex space-x-4'>
-
-              <Button buttonType="Sign Up" />
+            <Link href="/signup">
+               <Button buttonType="Sign Up" />
+                
+            </Link>
 
           <Button buttonType="Login" />
         </div>
@@ -55,12 +57,16 @@ const Navbar = () => {
         </div>
 
         <div className={`${isOpen ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0"} transition-all ease-in-out duration-300 flex flex-col items-center justify-evenly w-full text-2xl font-rb font-bold text-oliveGreen overflow-hidden`}>
-          <Link href="#home">Home</Link>
-          <Link href="#About">About</Link>
-          <Link href="#How">How it works</Link>
+          <Link href="/#home">Home</Link>
+          <Link href="/#About">About</Link>
+          <Link href="/#How">How it works</Link>
 
           <div className='flex space-x-4 mt-3 '>
-          <Button buttonType="Sign Up" className='max-w-32' />
+            <Link href="/signup">  
+               <Button buttonType="Sign Up" className='max-w-32' />
+
+            
+            </Link>
           <Button buttonType="Login" className='max-w-32' />
         </div>
         
