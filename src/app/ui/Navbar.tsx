@@ -16,12 +16,15 @@ const Navbar = () => {
     <>
       {/* Desktop Nav */}
       <nav className='hidden md:flex justify-between items-center p-10 space-x-4 lg:mx-[15vw]'>
+        <Link href="/#Home">
         <Image 
           src={logo} 
           alt='company logo' 
           className='w-40' 
           priority
         />
+        </Link>
+   
 
         <div className='hidden md:hidden lg:hidden 2xl:flex  justify-evenly w-full text-2xl font-rb font-bold text-oliveGreen'>
           <Link href="/#home">Home</Link>
@@ -42,12 +45,16 @@ const Navbar = () => {
       {/* Mobile Nav */}
       <nav className='flex flex-col md:hidden p-5 bg-white drop-shadow-lg rounded-b-2xl fixed top-0 left-0 right-0 z-10'>
         <div className='flex justify-between'>
-          <Image 
+        
+        <Link href="/#home">
+        <Image 
             src={logo} 
             alt='company logo' 
             className='w-28 md:w-32' 
             priority
           />
+        </Link>
+     
           <button 
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle navigation menu"
