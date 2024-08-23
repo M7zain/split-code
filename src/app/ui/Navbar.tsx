@@ -30,7 +30,9 @@ const Navbar = () => {
         </div>
 
         <div className='flex space-x-4'>
-          <Button buttonType="Sign Up" />
+
+              <Button buttonType="Sign Up" />
+
           <Button buttonType="Login" />
         </div>
       </nav>
