@@ -20,8 +20,9 @@ const Navbar = () => {
         <Image 
           src={logo} 
           alt='company logo' 
-          className='w-40' 
+          className='w-56' 
           priority
+          
         />
         </Link>
    
