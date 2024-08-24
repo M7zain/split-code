@@ -29,7 +29,7 @@ const RB = localFont (
 export const metadata: Metadata = {
   title: "Split Code ",
   description: "Empower Your Projects with Collaborative Development.",
-  metadataBase: new URL('https://splitcode.tech/'),
+  metadataBase: new URL('https://splitcode.vercel.app/'),
 };
 
 export default function RootLayout({
@@ -38,8 +38,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+
+  
     <html lang="en">
       
+      <head>
+                <title>Split Code</title>
+                <meta property="og:title" content="Split Code - Collaborate, Create, Conquer" />
+                <meta property="og:description" content="At Split Code, we bring together talented freelance developers to work on exciting projects." />
+                <meta property="og:image" content="/opengraph-image.png" />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://splitcode.tech" />
+      
+      </head>
       <body className={`${RB.variable} ${inter.className}`}>
 
         <Navbar/>
