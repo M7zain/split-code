@@ -39,7 +39,10 @@ const Navbar = () => {
                 
             </Link>
 
-          <Button buttonType="Login" />
+          <Link href="/login">
+             <Button buttonType="Login" />
+
+          </Link>
         </div>
       </nav>
 
@@ -75,7 +78,11 @@ const Navbar = () => {
 
             
             </Link>
-          <Button buttonType="Login" className='max-w-32' />
+
+            <Link href="/login"> 
+                    <Button buttonType="Login" className='max-w-32' />
+
+            </Link>
         </div>
         
         </div>
