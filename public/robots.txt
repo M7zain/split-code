@@ -1,0 +1,5 @@
+user-agent: *
+Disallow: /private/
+Disallow: /tmp/
+Allow: /
+Sitemap: https://splitcode.tech/sitemap.xmlg
