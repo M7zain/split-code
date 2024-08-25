@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import localFont from 'next/font/local'
 import "./globals.css";
 import Navbar from "@/app/ui/Navbar";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -39,7 +40,10 @@ export default function RootLayout({
 }>) {
   return (
 
-  
+
+    <ClerkProvider>
+
+   
     <html lang="en">
       
       <head>
@@ -57,5 +61,8 @@ export default function RootLayout({
         {children}
         </body>
     </html>
+
+    </ClerkProvider>
+  
   );
 }

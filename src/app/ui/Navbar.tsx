@@ -47,7 +47,7 @@ const Navbar = () => {
       </nav>
 
       {/* Mobile Nav */}
-      <nav className='flex flex-col md:hidden p-5 bg-white drop-shadow-lg rounded-b-2xl fixed top-0 left-0 right-0 z-10'>
+      <nav className='flex flex-col md:hidden p-5 bg-white drop-shadow-lg rounded-b-2xl fixed top-0 left-0 right-0 z-20'>
         <div className='flex justify-between'>
         
         <Link href="/#home">
