@@ -41,7 +41,6 @@ const Navbar = () => {
 
           <Link href="/login">
              <Button buttonType="Login" />
-
           </Link>
         </div>
       </nav>

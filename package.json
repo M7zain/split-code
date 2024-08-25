@@ -8,6 +8,7 @@
   
   "scripts": {
   
+    
   "dev": "next dev",
   
     
@@ -34,6 +35,9 @@
   
     
   "next": "14.2.5",
+  
+    
+  "next-themes": "^0.3.0",
   
     
   "react": "^18",

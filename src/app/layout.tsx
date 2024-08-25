@@ -3,7 +3,11 @@ import { Inter } from "next/font/google";
 import localFont from 'next/font/local'
 import "./globals.css";
 import Navbar from "@/app/ui/Navbar";
+import { ThemeProvider } from "next-themes";
 import { ClerkProvider } from "@clerk/nextjs";
+
+import {  SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -55,11 +59,15 @@ export default function RootLayout({
                 <meta property="og:url" content="https://splitcode.tech" />
       
       </head>
+
+ 
       <body className={`${RB.variable} ${inter.className}`}>
 
+  
         <Navbar/>
         {children}
         </body>
+
     </html>
 
     </ClerkProvider>
