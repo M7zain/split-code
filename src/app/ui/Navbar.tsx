@@ -7,6 +7,7 @@ import Button from './Button'
 import Link from 'next/link'
 import { FiMenu } from 'react-icons/fi'
 import { IoClose } from 'react-icons/io5'
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 
 const Navbar = () => {
 
@@ -33,6 +34,9 @@ const Navbar = () => {
           <Link href="/#How">How it works</Link>
         </div>
 
+
+        <SignedOut>
+
         <div className='flex space-x-4'>
             <Link href="/signup">
                <Button buttonType="Sign Up" />
@@ -43,6 +47,12 @@ const Navbar = () => {
              <Button buttonType="Login" />
           </Link>
         </div>
+        </SignedOut>
+
+      <SignedIn>
+
+        <UserButton showName/> 
+      </SignedIn>
       </nav>
 
       {/* Mobile Nav */}
@@ -57,19 +67,32 @@ const Navbar = () => {
             priority
           />
         </Link>
-     
+
+          <SignedOut>
+
           <button 
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle navigation menu"
-          >
+            >
             {isOpen ? <IoClose size={35} /> : <FiMenu size={35} />}
           </button>
+          </SignedOut>
+
+
+          <SignedIn> 
+
+              <UserButton/>
+          </SignedIn>
         </div>
 
         <div className={`${isOpen ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0"} transition-all ease-in-out duration-300 flex flex-col items-center justify-evenly w-full text-2xl font-rb font-bold text-oliveGreen overflow-hidden`}>
           <Link href="/#home">Home</Link>
           <Link href="/#About">About</Link>
           <Link href="/#How">How it works</Link>
+
+
+
+          <SignedOut>
 
           <div className='flex space-x-4 mt-3 '>
             <Link href="/signup">  
@@ -84,6 +107,9 @@ const Navbar = () => {
             </Link>
         </div>
         
+          </SignedOut>
+
+      
         </div>
 
 
