@@ -52,12 +52,14 @@ export default function RootLayout({
       
       <head>
                 <title>Split Code</title>
+                <meta name="google-site-verification" content="vzWf6jkGfYde44-7HLUkmlTJgVjPcg1P2HRD8B_6F24" />
+
                 <meta property="og:title" content="Split Code - Collaborate, Create, Conquer" />
                 <meta property="og:description" content="At Split Code, we bring together talented freelance developers to work on exciting projects." />
                 <meta property="og:image" content="/opengraph-image.png" />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://splitcode.tech" />
-      
+
       </head>
 
  
