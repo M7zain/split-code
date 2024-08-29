@@ -16,7 +16,7 @@ const About = () => {
              </p>
              <Image loading='lazy' src={aboutUs}  alt="two people looking at a dashboard" width={300} className='flex lg:hidden '/>
              
-             <Button href='/sing-up' buttonText='Join Us' className='max-w-28 text-lg lg:text-xl'/>
+             <Button href='/sign-up' buttonText='Join Us' className='max-w-28 text-lg lg:text-xl'/>
           </div>
   
           <Image src={aboutUs} alt="two people looking at a dashboard" width={500} className='hidden lg:flex ml-10'/>

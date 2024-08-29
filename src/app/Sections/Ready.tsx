@@ -21,7 +21,7 @@ const Ready = () => {
             <div className='flex flex-col md:flex-row space-x-0 md:space-x-6 space-y-4 md:space-y-0 '>
                 <Button href='/login' buttonText='Post a project' className='text-lg lg:text-xl '/>
                
-               <Link href='sing-up'>
+               <Link href='/sign-up'>
                
                 <button className='  p-3 w-52 rounded-lg capitalize border-splitOrange bg-white border-2 text-splitOrange text-lg lg:text-xl'>
                         Sign up as a freelancer
