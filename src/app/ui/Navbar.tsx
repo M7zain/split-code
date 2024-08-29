@@ -38,14 +38,11 @@ const Navbar = () => {
         <SignedOut>
 
         <div className='flex space-x-4'>
-            <Link href="/signup">
-               <Button buttonType="Sign Up" />
-                
-            </Link>
-
-          <Link href="/login">
-             <Button buttonType="Login" />
-          </Link>
+ 
+               <Button href='/sign-up' buttonText="Sign Up" />
+              
+             <Button href='/login' buttonText="Login" />
+ 
         </div>
         </SignedOut>
 
@@ -95,14 +92,13 @@ const Navbar = () => {
           <SignedOut>
 
           <div className='flex space-x-4 mt-3 '>
-            <Link href="/signup">  
-               <Button buttonType="Sign Up" className='max-w-32' />
+
+               <Button href='/sign-up' buttonText="Sign Up" className='max-w-32' />
 
             
-            </Link>
-
+ 
             <Link href="/login"> 
-                    <Button buttonType="Login" className='max-w-32' />
+                    <Button href='/login' buttonText="Login" className='max-w-32' />
 
             </Link>
         </div>

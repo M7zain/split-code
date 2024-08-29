@@ -15,7 +15,7 @@ const Hero = () => {
 
         <p className='text-sm md:text-lg lg:text-xl text-pretty  text-center md:text-start leading-relaxed mt-7 md:mt-14 font-rb font-light '>Join a community of skilled freelancers and bring your software ideas to life—efficiently and expertly.</p>
       
-        <Button buttonType='Get Started' className='mt-7 md:mt-10' />
+        <Button href='/sign-up' buttonText='Get Started' className='mt-7 md:mt-10' />
 
       </div>
       {/* Desktop image */}
