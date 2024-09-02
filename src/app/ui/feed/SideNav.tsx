@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect } from 'react'
 import logo from '../../../../public/logo.svg'
+import userImage from '../../../../public/user.png'
 import Image from 'next/image'
 import { SignOutButton, useUser } from '@clerk/nextjs'
 import { CiCirclePlus } from "react-icons/ci";
@@ -9,6 +10,12 @@ import { BiBold } from 'react-icons/bi'
 const SideNav = () => {
 
     const {isLoaded ,user} = useUser(); 
+    const imgUrl = user?.imageUrl  || userImage; 
+
+    if(!isLoaded){ 
+        return null;
+    }
+
 
   return (
     <div className='mt-14 flex flex-col'>
@@ -17,7 +24,7 @@ const SideNav = () => {
         <div className='w-full flex items-center bg-slate-200 rounded-xl mt-24 drop-shadow-xl p-4'> 
                     
                     <div className='relative overflow-hidden bg-black w-16 h-16 rounded-full'>
-                         <Image src={ user?.imageUrl }  objectFit='cover' fill={true} />
+                         <Image src={imgUrl}  alt="user image" objectFit='cover' fill={true} />
                     </div>
                     
                     <div>
