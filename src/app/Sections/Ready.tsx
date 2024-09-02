@@ -19,7 +19,7 @@ const Ready = () => {
              <Image src={join}  alt="two people looking at a dashboard" width={300} className='flex lg:hidden '/>
              
             <div className='flex flex-col md:flex-row space-x-0 md:space-x-6 space-y-4 md:space-y-0 '>
-                <Button href='/login' buttonText='Post a project' className='text-lg lg:text-xl '/>
+                <Button href='/sign-in' buttonText='Post a project' className='text-lg lg:text-xl '/>
                
                <Link href='/sign-up'>
                

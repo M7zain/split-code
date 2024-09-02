@@ -11,7 +11,7 @@ const Feed = () => {
   useEffect(() => {
     if (isLoaded && !isSignedIn) {
       // Redirect to login if not signed in
-      router.push(`/login?redirect=/feed`);
+      router.push(`/sign-in?redirect=/feed`);
     }
   }, [isLoaded, isSignedIn, router]);
 

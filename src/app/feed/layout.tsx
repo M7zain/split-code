@@ -1,4 +1,15 @@
+import SideNav from "../ui/feed/SideNav";
+
+export const experimental_ppr = true; 
+
+
 export default function Layout({ children }: { children: React.ReactNode }) {
-    return <div className="px-[10vw]">{children}</div>;
-  }
-  
+  return (
+    <div className="flex h-screen flex-col md:flex-row md:overflow-hidden px-[15vw]">
+      <div className="w-full flex-none md:w-64 ">
+        <SideNav />
+      </div>
+      <div className="flex-grow p-6 md:overflow-y-auto md:p-12">{children}</div>
+    </div>
+  );
+}

@@ -41,7 +41,7 @@ const Navbar = () => {
  
                <Button href='/sign-up' buttonText="Sign Up" />
               
-             <Button href='/login' buttonText="Login" />
+             <Button href='/sign-in' buttonText="Login" />
  
         </div>
         </SignedOut>
@@ -97,8 +97,8 @@ const Navbar = () => {
 
             
  
-            <Link href="/login"> 
-                    <Button href='/login' buttonText="Login" className='max-w-32' />
+            <Link href="/sign-in"> 
+                    <Button href='/sign-in' buttonText="Login" className='max-w-32' />
 
             </Link>
         </div>
