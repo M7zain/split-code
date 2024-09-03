@@ -1,7 +1,7 @@
 'use client';
 import React, { ReactElement, useEffect } from 'react';
 import Layout from './layout';
-import { useUser } from '@clerk/nextjs';
+import { SignOutButton, useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
 
 const Feed = () => {
@@ -20,7 +20,11 @@ const Feed = () => {
     return <div>Loading...</div>;
   }
 
-  return <div>feed</div>;
+  return <div>
+        feed
+        <SignOutButton/>
+
+  </div>;
 };
 
 Feed.getLayout = function getLayout(page: ReactElement) {

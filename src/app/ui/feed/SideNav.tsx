@@ -5,7 +5,11 @@ import userImage from '../../../../public/user.png'
 import Image from 'next/image'
 import { SignOutButton, useUser } from '@clerk/nextjs'
 import { CiCirclePlus } from "react-icons/ci";
-import { BiBold } from 'react-icons/bi'
+import { IoIosSettings } from "react-icons/io";
+import { FaHome,FaSearch } from "react-icons/fa";
+
+
+
 
 const SideNav = () => {
 
@@ -18,7 +22,9 @@ const SideNav = () => {
 
 
   return (
-    <div className='mt-14 flex flex-col'>
+    <>
+   {/* desktop sidebar */}
+    <div className='hidden mt-14 md:flex md:flex-col'>
         <Image src={logo} alt="Split code logo" width={150}/>
 
         <div className='w-full flex items-center bg-slate-200 rounded-xl mt-24 drop-shadow-xl p-4'> 
@@ -59,6 +65,28 @@ const SideNav = () => {
                 </div>
         </div>
     </div>
+
+{/* mobile bottom nav */}
+<div className='flex md:hidden flex-row justify-between items-center p-5 bg-slate-200 drop-shadow-2xl rounded-t-3xl fixed bottom-0 left-0 right-0 z-20'>
+
+  <FaHome className='text-[#FB8500] sm:text-[35px] md:text-[45px] lg:text-[55px]' />
+
+  <FaSearch className='text-[#FB8500] sm:text-[35px] md:text-[40px] lg:text-[50px]' />
+
+  <button className='bg-splitOrange text-white font-rb text-xl rounded-xl p-3 flex flex-row justify-center items-center'>
+    <CiCirclePlus className='sm:text-[35px] md:text-[45px] lg:text-[55px]' />
+  </button>
+
+  <IoIosSettings className='text-[#FB8500] sm:text-[35px] md:text-[45px] lg:text-[55px]' />
+
+  <div className='relative overflow-hidden bg-black sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full'>
+    <Image src={imgUrl} alt="user image" objectFit='cover' fill={true} />
+  </div>
+
+</div>
+
+
+    </>
   )
 }
 
