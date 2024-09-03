@@ -4,9 +4,7 @@ import logo from '../../../../public/logo.svg'
 import userImage from '../../../../public/user.png'
 import Image from 'next/image'
 import { SignOutButton, useUser } from '@clerk/nextjs'
-import { CiCirclePlus } from "react-icons/ci";
-import { IoIosSettings } from "react-icons/io";
-import { FaHome,FaSearch } from "react-icons/fa";
+import { CiCirclePlus , CiSearch ,CiHome ,CiSettings  } from "react-icons/ci";
 
 
 
@@ -67,22 +65,25 @@ const SideNav = () => {
     </div>
 
 {/* mobile bottom nav */}
-<div className='flex md:hidden flex-row justify-between items-center p-5 bg-slate-200 drop-shadow-2xl rounded-t-3xl fixed bottom-0 left-0 right-0 z-20'>
+<div className=' md:hidden  justify-evenly items-center p-3 bg-slate-200 drop-shadow-2xl rounded-t-3xl fixed bottom-0 left-0 right-0 z-20'>
 
-  <FaHome className='text-[#FB8500] text-[35px] sm:text-[45px] md:text-[50px]' />
+  <div className='flex justify-evenly items-center w-full flex-row space-x-5 '>
 
-  <FaSearch className='text-[#FB8500] text-[35px] sm:text-[45px] md:text-[50px]' />
+  <CiHome  className='text-[#FB8500] text-[35px] sm:text-[45px] md:text-[50px]' />
 
-  <button className='bg-splitOrange text-white font-rb text-xl rounded-xl p-3 flex flex-row justify-center items-center'>
+  <CiSearch  className='text-[#FB8500] text-[35px] sm:text-[45px] md:text-[50px]' />
+
+  <button className='bg-splitOrange text-white font-rb text-xl rounded-xl p-2 flex flex-row justify-center items-center'>
     <CiCirclePlus className='text-[35px] sm:text-[45px] md:text-[50px]' />
   </button>
 
-  <IoIosSettings className='text-[#FB8500] text-[35px] sm:text-[45px] md:text-[50px]' />
+  <CiSettings  className='text-[#FB8500] text-[35px] sm:text-[45px] md:text-[50px]' />
 
-  <div className='relative bg-black w-[45px] h-[45px] sm:w-[55px] sm:h-[55px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden'>
+  <div className='relative bg-black w-[35px] h-[35px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden'>
     <Image src={imgUrl} alt="user image" layout="fill" objectFit="cover" />
   </div>
 
+  </div>
 </div>
 
 
