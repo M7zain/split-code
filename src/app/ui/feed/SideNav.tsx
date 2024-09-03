@@ -69,18 +69,18 @@ const SideNav = () => {
 {/* mobile bottom nav */}
 <div className='flex md:hidden flex-row justify-between items-center p-5 bg-slate-200 drop-shadow-2xl rounded-t-3xl fixed bottom-0 left-0 right-0 z-20'>
 
-  <FaHome className='text-[#FB8500] sm:text-[35px] md:text-[45px] lg:text-[55px]' />
+  <FaHome className='text-[#FB8500] text-[35px] sm:text-[45px] md:text-[50px]' />
 
-  <FaSearch className='text-[#FB8500] sm:text-[35px] md:text-[40px] lg:text-[50px]' />
+  <FaSearch className='text-[#FB8500] text-[35px] sm:text-[45px] md:text-[50px]' />
 
   <button className='bg-splitOrange text-white font-rb text-xl rounded-xl p-3 flex flex-row justify-center items-center'>
-    <CiCirclePlus className='sm:text-[35px] md:text-[45px] lg:text-[55px]' />
+    <CiCirclePlus className='text-[35px] sm:text-[45px] md:text-[50px]' />
   </button>
 
-  <IoIosSettings className='text-[#FB8500] sm:text-[35px] md:text-[45px] lg:text-[55px]' />
+  <IoIosSettings className='text-[#FB8500] text-[35px] sm:text-[45px] md:text-[50px]' />
 
-  <div className='relative overflow-hidden bg-black sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full'>
-    <Image src={imgUrl} alt="user image" objectFit='cover' fill={true} />
+  <div className='relative bg-black w-[45px] h-[45px] sm:w-[55px] sm:h-[55px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden'>
+    <Image src={imgUrl} alt="user image" layout="fill" objectFit="cover" />
   </div>
 
 </div>
