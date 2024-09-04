@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import logo from '../../../../public/logo.svg'
 import userImage from '../../../../public/user.png'
 import Image from 'next/image'
-import { SignOutButton, useUser } from '@clerk/nextjs'
+import { SignOutButton, UserButton, useUser } from '@clerk/nextjs'
 import { CiCirclePlus , CiSearch ,CiHome ,CiSettings  } from "react-icons/ci";
 
 
@@ -79,9 +79,12 @@ const SideNav = () => {
 
   <CiSettings  className='text-[#FB8500] text-[35px] sm:text-[45px] md:text-[50px]' />
 
-  <div className='relative bg-black w-[35px] h-[35px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden'>
+  {/* <div className='relative bg-black w-[35px] h-[35px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden'>
     <Image src={imgUrl} alt="user image" layout="fill" objectFit="cover" />
-  </div>
+  </div> */}
+
+  <UserButton/>
+
 
   </div>
 </div>
