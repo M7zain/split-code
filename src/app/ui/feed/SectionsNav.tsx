@@ -16,7 +16,7 @@ const SectionsNav = () => {
     <div className="mt-8" >
       <h2 className="font-rb text-[24px] text-oliveGreen font-normal">Splits For You</h2>
 
-      <div className="flex flex-row justify-between md:justify-start space-x-0 md:space-x-7 font-rb text-lg mt-4">
+      <div className="flex flex-row justify-between md:justify-start space-x-0 md:space-x-7 font-rb text-sm md:text-lg mt-4">
         <button>Most Recent</button>
         <button>Best Matches</button>
         <button>Saved Splits</button>
