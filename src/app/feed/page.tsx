@@ -1,8 +1,10 @@
 'use client';
 import React, { ReactElement, useEffect } from 'react';
 import Layout from './layout';
-import { SignOutButton, useUser } from '@clerk/nextjs';
+import {useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
+import Post from '../ui/feed/Post';
+import { postData } from '@/constants';
 
 const Feed = () => {
   const { isSignedIn, isLoaded } = useUser(); // Check if user state is loaded
@@ -16,12 +18,15 @@ const Feed = () => {
   }, [isLoaded, isSignedIn, router]);
 
   if (!isLoaded || !isSignedIn) {
-    // Optionally, show a loading spinner while checking auth status
     return <div>Loading...</div>;
   }
 
   return <div className='h-[100vh]'>
-        feed
+      {
+        postData.map((data) => ( 
+          <Post date={data.date} title={data.title} position={data.position} description={data.description} difficulty={data.difficulty}/>
+        ))
+      }
   </div>;
 };
 

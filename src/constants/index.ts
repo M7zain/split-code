@@ -108,3 +108,14 @@ export const socialMedia = [
     { src: twitter, alt: "twitter logo" },
     { src: instagram, alt: "instagram logo" },
 ];
+
+
+export const postData = [
+    { 
+        date: 'posted 1 hour ago', 
+        title: "I need someone to center a div for me (urgent)",
+        position: "Front-End Developer", 
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus arcu lorem, luctus non blandit tincidunt, vulputate a diam. Aliquam erat volutpat. Suspendisse laoreet, nisl eget viverra venenatis, est ex luctus nulla, ut pulvinar augue augue vitae mi. Vivamus porttitor pharetra tellus quis consectetur. ",
+        difficulty: "Hard",
+    }
+]
