@@ -20,10 +20,8 @@ const Feed = () => {
     return <div>Loading...</div>;
   }
 
-  return <div>
+  return <div className='h-[100vh]'>
         feed
-        <SignOutButton/>
-
   </div>;
 };
 
