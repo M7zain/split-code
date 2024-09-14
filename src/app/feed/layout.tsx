@@ -3,7 +3,7 @@ import SideNav from "../ui/feed/SideNav";
 
 
 
-export default function Layout({ children, showForm }: { children: React.ReactNode, showForm: boolean}) {
+export default function Layout({ children }: { children: React.ReactNode}) {
   return (
 
     <>
