@@ -3,11 +3,14 @@ import SideNav from "../ui/feed/SideNav";
 
 
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children, showForm }: { children: React.ReactNode, showForm: boolean}) {
   return (
+
+    <>
+      
     <div className="flex h-screen flex-col md:flex-row md:overflow-hidden px-[2vw] md:px-[15vw]">
       <div className="w-full flex-none md:w-64 "> 
-        <SideNav />
+        <SideNav/>
       </div>
 
       
@@ -18,8 +21,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       </div>
 
+   
+
   
     
     </div>
+    </>
   );
 }
