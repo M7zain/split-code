@@ -8,7 +8,7 @@ import { CiCirclePlus, CiSearch, CiHome, CiSettings } from 'react-icons/ci';
 import { useRouter } from 'next/navigation';
 
 const SideNav = () => {
-  const router = useRouter()
+  const router = useRouter(); 
   const { isLoaded, user } = useUser();
   const imgUrl = user?.imageUrl || userImage;
 
@@ -22,7 +22,7 @@ const SideNav = () => {
     <>
       {/* desktop sidebar */}
       <div className='hidden mt-14 md:flex md:flex-col'>
-        <Image src={logo} alt="Split code logo" width={150} />
+        <Image src={logo} alt="Split code logo" width={150} onClick={() => router.push("/feed")} />
 
         <div className='w-full flex items-center bg-slate-200 rounded-xl mt-24 drop-shadow-xl p-4'>
           <div className='relative overflow-hidden bg-black w-16 h-16 rounded-full'>
@@ -59,9 +59,9 @@ const SideNav = () => {
       {/* mobile bottom nav */}
       <div className='md:hidden justify-evenly items-center p-3 bg-slate-200 drop-shadow-2xl rounded-t-3xl fixed bottom-0 left-0 right-0 z-20'>
         <div className='flex justify-evenly items-center w-full flex-row space-x-5'>
-          <CiHome className='text-[#FB8500] text-[35px] sm:text-[45px] md:text-[50px]' />
+          <CiHome className='text-[#FB8500] text-[35px] sm:text-[45px] md:text-[50px]' onClick={() => router.push("/feed")} />
           <CiSearch className='text-[#FB8500] text-[35px] sm:text-[45px] md:text-[50px]' />
-          <button className='bg-splitOrange text-white font-rb text-xl rounded-xl p-2 flex flex-row justify-center items-center'>
+          <button onClick={() => router.push("/feed/createsplit")} className='bg-splitOrange text-white font-rb text-xl rounded-xl p-2 flex flex-row justify-center items-center'>
             <CiCirclePlus className='text-[35px] sm:text-[45px] md:text-[50px]' />
           </button>
           <CiSettings className='text-[#FB8500] text-[35px] sm:text-[45px] md:text-[50px]' />
