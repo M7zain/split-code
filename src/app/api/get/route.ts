@@ -1,20 +1,18 @@
 import { NextResponse } from 'next/server';
 import { sql } from '@vercel/postgres';
-import { getAuth } from "@clerk/nextjs/server"
-import type { NextApiRequest, NextApiResponse } from 'next'
+import { getAuth } from "@clerk/nextjs/server";
+import type { NextRequest } from 'next/server';
 
-export async function GET(req : NextApiRequest, res: NextApiResponse) {
+export async function GET(req: NextRequest) {
+  const { userId } = getAuth(req);
 
-  const {userId} = getAuth(req);
-
-  if(!userId){ 
-    return res.status(401).json({error:'not authenticated'}); 
+  if (!userId) {
+    return NextResponse.json({ error: 'not authenticated' }, { status: 401 });
   }
 
   try {
-    const { rows } = await sql`SELECT * FROM posts`;  // Query using Vercel Postgres client
-    
-    return NextResponse.json(rows);  // Return the rows as JSON
+    const { rows } = await sql`SELECT * FROM posts`; // Query using Vercel Postgres client
+    return NextResponse.json(rows); // Return the rows as JSON
   } catch (error: any) {
     return NextResponse.json(
       {
@@ -26,6 +24,4 @@ export async function GET(req : NextApiRequest, res: NextApiResponse) {
       }
     );
   }
-
-  
 }
