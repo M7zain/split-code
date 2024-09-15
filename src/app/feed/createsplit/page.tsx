@@ -39,7 +39,8 @@ const SplitForm = () => {
           }
     
           // Handle successful creation
-          alert('Split created successfully!');
+          router.push('/feed'); 
+          // alert('Split created successfully!');
         } catch (error) {
           console.error(error);
           alert('Error creating split');
