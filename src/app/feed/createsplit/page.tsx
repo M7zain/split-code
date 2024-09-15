@@ -1,7 +1,18 @@
 'use client'
-import React from 'react'
+import { useUser } from '@clerk/nextjs';
+import { useRouter } from 'next/navigation';
+import React, { useEffect } from 'react'
 
 const SplitForm = () => {
+
+    const {isLoaded ,isSignedIn} = useUser(); 
+    const router = useRouter(); 
+
+    useEffect(() => { 
+      if (isLoaded && !isSignedIn) {
+        router.push(`/sign-in?redirect=/feed`);
+      }
+    }, [isLoaded,isSignedIn, router])
 
 
     const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
