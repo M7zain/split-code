@@ -64,7 +64,13 @@ const SplitForm = () => {
               </div>
               <div>
                 <label htmlFor='difficulty'>Difficulty:</label>
-                <input type='text' id='difficulty' name='difficulty' className='block border p-2 my-2 w-full' />
+                {/* <input type='text'  id='difficulty' name='difficulty' className='block border p-2 my-2 w-full' /> */}
+                <select id='difficulty' name='difficulty' className='block border p-2 my-2 w-full' >
+                  <option value="Easy">Easy</option>
+                  <option value="Mid">Mid</option>
+                  <option value="Hard">Hard</option>
+
+                </select>
               </div>
               <button type='submit' className='bg-splitOrange text-white font-rb text-xl rounded-lg p-2 mt-4'>Submit</button>
             </form>
