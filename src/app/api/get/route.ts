@@ -11,7 +11,10 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    const { rows } = await sql`SELECT * FROM posts`; // Query using Vercel Postgres client
+    const { rows } = await sql`SELECT * 
+                               FROM posts 
+                               WHERE created_at >= NOW() - INTERVAL '24 HOURS'
+                               ORDER BY created_at DESC;`; // Query using Vercel Postgres client
     return NextResponse.json(rows); // Return the rows as JSON
   } catch (error: any) {
     return NextResponse.json(
