@@ -64,6 +64,8 @@ const Feed = () => {
           position={data.position}
           description={data.content}
           difficulty={data.difficulty}
+          id={data.id}
+
         />
       ))}
     </div>
