@@ -4,8 +4,11 @@ import { useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
+import { CiEdit } from "react-icons/ci";
+
+
 const Page = ({ params }: { params: { id: string } }) => {
-  const { isSignedIn, isLoaded } = useUser(); // Check if user is logged in
+  const { isSignedIn, isLoaded , user } = useUser(); // Check if user is logged in
   const router = useRouter();
 
   // State to hold fetched post data
@@ -58,10 +61,17 @@ const Page = ({ params }: { params: { id: string } }) => {
           <h2>{post.title}</h2>
           <p>{post.content}</p>
           <p>Posted on: {post.created_at}</p>
+         { user.id === post.user_id? 
+          <button onClick={() => router.push(`/feed/${post.id}/edit`)}>
+             <CiEdit className='text-[#FB8500] text-[35px] sm:text-[45px] md:text-[50px]' />
+          </button>: 
+          null
+          }
         </div>
       ) : (
         <div>No post found</div>
-      )}
+      )
+      }
     </div>
   );
 };
