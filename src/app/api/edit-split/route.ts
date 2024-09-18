@@ -18,21 +18,21 @@ export async function PUT(req: NextRequest) {
       return NextResponse.json({ error: 'ID, title, position, and content are required' }, { status: 400 });
     }
 
-    // Fetch the post from the database to check the post's user_id
-    const post = await sql`
-      SELECT user_id FROM posts WHERE id = ${id};
-    `;
+      // Fetch the post from the database to check the post's user_id
+      const post = await sql`
+        SELECT user_id FROM posts WHERE id = ${id};
+      `;
 
-    if (post.rowCount === 0) {
-      return NextResponse.json({ error: 'Post not found' }, { status: 404 });
-    }
+      if (post.rowCount === 0) {
+        return NextResponse.json({ error: 'Post not found' }, { status: 404 });
+      }
 
-    const postOwnerId = post.rows[0].user_id;
+      const postOwnerId = post.rows[0].user_id;
 
-    // Check if the authenticated user is the owner of the post
-    if (postOwnerId !== userId) {
-      return NextResponse.json({ error: 'You do not have permission to edit this post' }, { status: 403 });
-    }
+      // Check if the authenticated user is the owner of the post
+      if (postOwnerId !== userId) {
+        return NextResponse.json({ error: 'You do not have permission to edit this post' }, { status: 403 });
+      }
 
     // Update the post
     const result = await sql`

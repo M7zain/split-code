@@ -4,6 +4,8 @@ import { useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { CiEdit } from "react-icons/ci";
+import { MdDeleteOutline } from "react-icons/md";
+
 import Image from 'next/image';
 
 const Page = ({ params }: { params: { id: string } }) => {
@@ -47,6 +49,29 @@ const Page = ({ params }: { params: { id: string } }) => {
       setError('Error fetching user data.');
     }
   };
+
+  const deletePost = async (post_id: string) => {
+    try {
+      const response = await fetch(`/api/delete-split?id=${post_id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+  
+      if (!response.ok) {
+        throw new Error('Error deleting post');
+      }
+  
+      router.push('/feed');  // Redirect to feed after deletion
+      // Handle successful deletion
+      alert("Post deleted successfully");
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Error deleting post');
+    }
+  };
+  
 
   // Fetch the post data when the component mounts
   useEffect(() => {
@@ -100,10 +125,24 @@ const Page = ({ params }: { params: { id: string } }) => {
           ) : (
             <p>Loading post owner data...</p>
           )}
+
+          {/* check if the post owner id match logged user Id */}
           {user.id === post.user_id ? (
+          
+          <div>
+
+              {/* edit button */}
             <button onClick={() => router.push(`/feed/${post.id}/edit`)}>
               <CiEdit className='text-[#FB8500] text-[35px] sm:text-[45px] md:text-[50px]' />
             </button>
+
+            {/* Delete button */}
+            <button onClick={() => deletePost(post.id) } >
+                <MdDeleteOutline  className='text-[#FB8500] text-[35px] sm:text-[45px] md:text-[50px]' />
+            </button>
+              
+            </div>
+            
           ) : null}
         </div>
       ) : (
