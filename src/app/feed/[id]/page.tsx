@@ -8,6 +8,7 @@ import { MdDeleteOutline } from "react-icons/md";
 
 import Image from 'next/image';
 
+
 const Page = ({ params }: { params: { id: string } }) => {
   const { isSignedIn, isLoaded, user } = useUser(); // Check if user is logged in
   const router = useRouter();
@@ -102,49 +103,63 @@ const Page = ({ params }: { params: { id: string } }) => {
   }
 
   return (
-    <div className=''>
-      <h1>Post Details</h1>
-      {post ? (
-        <div>
-          <h2>{post.title}</h2>
-          <p>{post.content}</p>
-          <p>Posted on: {post.created_at}</p>
-          {postOwner ? (
+    <div>
+
+      {/* post details section */}
+      <div className='flex justify-between items-center'>
+          {/* <h1 className='text-lg font-rb font-normal text-oliveGreen'>Post Details</h1> */}
+          <div>
+      {postOwner ? (
             <div className="flex items-center space-x-4">
+
               {/* Display user's photo */}
               <Image 
                 src={postOwner.imageUrl} 
                 alt="User's profile picture" 
-                width={50} 
-                height={50} 
                 className="rounded-full"
-              />
-              {/* Display user's email */}
-              <p>{postOwner.emailAddresses[0].emailAddress}</p>
+                width={50} 
+                height={50}
+                />
+
+                  {/* Display Full name */}
+                  <p>{postOwner.firstName +' '+  postOwner.lastName}</p>
+   
+  
             </div>
           ) : (
             <p>Loading post owner data...</p>
           )}
 
-          {/* check if the post owner id match logged user Id */}
-          {user.id === post.user_id ? (
-          
-          <div>
-
+      </div>
+            {/* check if the post owner id match logged user Id */}
+            {user.id === post.user_id ? (
+              
+              <div className='space-x-3'>
               {/* edit button */}
             <button onClick={() => router.push(`/feed/${post.id}/edit`)}>
-              <CiEdit className='text-[#FB8500] text-[35px] sm:text-[45px] md:text-[50px]' />
+              <CiEdit className='text-[#FB8500] text-[25px] sm:text-[35px] md:text-[45px]' />
             </button>
 
             {/* Delete button */}
             <button onClick={() => deletePost(post.id) } >
-                <MdDeleteOutline  className='text-[#FB8500] text-[35px] sm:text-[45px] md:text-[50px]' />
+                <MdDeleteOutline  className='text-[#FB8500] text-[25px] sm:text-[35px] md:text-[45px]' />
             </button>
-              
-            </div>
+          </div>
             
           ) : null}
+      </div>
+      
+     <hr className="h-px mt-3 bg-slate-400 border-0"/>
+      {post ? (
+        <>
+        <div className='flex flex-col space-y-5'>
+          <h2 className='mt-3 text-xl capitalize font-rb text-splitOrange'>{post.title}</h2>
+          <p className='text-lg  font-rb text-oliveGreen '>{post.content}</p>
+          <p className='text-sm font-rb text-slate-500'>Posted on: {post.created_at}</p>
         </div>
+
+        
+        </>
       ) : (
         <div>No post found</div>
       )}
