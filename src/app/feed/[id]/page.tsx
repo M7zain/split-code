@@ -7,8 +7,7 @@ import { CiEdit } from "react-icons/ci";
 import { MdDeleteOutline } from "react-icons/md";
 
 import Image from 'next/image';
-
-
+import Modal from "@/app/ui/Modal"
 const Page = ({ params }: { params: { id: string } }) => {
   const { isSignedIn, isLoaded, user } = useUser(); // Check if user is logged in
   const router = useRouter();
@@ -140,11 +139,12 @@ const Page = ({ params }: { params: { id: string } }) => {
               <CiEdit className='text-[#FB8500] text-[25px] sm:text-[35px] md:text-[45px]' />
             </button>
 
-            {/* Delete button */}
-            <button onClick={() => deletePost(post.id) } >
-                <MdDeleteOutline  className='text-[#FB8500] text-[25px] sm:text-[35px] md:text-[45px]' />
-            </button>
+
+            <Modal post_id={post.id}/>
+
           </div>
+
+       
             
           ) : null}
       </div>

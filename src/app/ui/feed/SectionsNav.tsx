@@ -11,7 +11,7 @@ const SectionsNav = () => {
     const [tab , setTab] = useState(1); 
   return (
        
-    <div className="p-6 bg-white sticky top-0 left-0 right-0 z-20">
+    <div className="p-6 bg-white sticky top-0 left-0 right-0 z-0">
 
     <div className="flex items-center justify-between md:justify-end">
       <Image src={logo} alt="split code logo" width={150} height={50} className="block md:hidden" /> 
