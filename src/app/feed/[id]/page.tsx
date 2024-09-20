@@ -133,7 +133,7 @@ const Page = ({ params }: { params: { id: string } }) => {
             {/* check if the post owner id match logged user Id */}
             {user.id === post.user_id ? (
               
-              <div className='space-x-3'>
+              <div>
               {/* edit button */}
             <button onClick={() => router.push(`/feed/${post.id}/edit`)}>
               <CiEdit className='text-[#FB8500] text-[25px] sm:text-[35px] md:text-[45px]' />

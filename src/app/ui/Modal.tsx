@@ -58,7 +58,7 @@ export default function Modal({post_id}: {post_id: string}) {
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
-                  <h3 className="text-3xl font-semibold font-rb ">
+                  <h3 className="text-xl md:text-3xl font-semibold font-rb ">
                     Delete This Split
                   </h3>
                   <button
@@ -72,7 +72,7 @@ export default function Modal({post_id}: {post_id: string}) {
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
-                  <p className="font-rb my-4 text-blueGray-500 text-lg leading-relaxed">
+                  <p className="font-rb my-4 text-blueGray-500 text-sm md:text-lg leading-relaxed">
                     This Split will be deleted permenantly! 
                   </p>
                 </div>
