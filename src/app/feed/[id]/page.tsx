@@ -135,7 +135,7 @@ const Page = ({ params }: { params: { id: string } }) => {
               
               <div>
               {/* edit button */}
-            <button onClick={() => router.push(`/feed/${post.id}/edit`)}>
+            <button onClick={() => router.push(`/feed/${post.id}/edit`)} className='mr-4'>
               <CiEdit className='text-[#FB8500] text-[25px] sm:text-[35px] md:text-[45px]' />
             </button>
 
