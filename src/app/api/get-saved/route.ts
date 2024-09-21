@@ -28,14 +28,23 @@ export async function GET(req: NextRequest) {
     }
 
     // Create a list of post IDs to fetch details from the posts table
-    const postIds = (savedPosts.rows as SavedPostRow[]).map((row) => row.post_id) ;
-    
-    // Fetch details for the saved posts
-    const result = await sql`
+    const postIds = (savedPosts.rows as SavedPostRow[]).map((row) => row.post_id);
+
+    // If no postIds, return early
+    if (postIds.length === 0) {
+      return NextResponse.json({ message: 'No posts found' }, { status: 404 });
+    }
+
+    // Dynamically generate SQL query with parameterized IDs
+    const placeholders = postIds.map((_, index) => `$${index + 1}`).join(',');
+    const query = `
       SELECT * 
       FROM posts 
-      WHERE id = ANY(${postIds});`;
+      WHERE id IN (${placeholders});
+    `;
 
+    // Execute the SQL query with parameterized postIds
+    const result = await sql.query(query, postIds);
 
     return NextResponse.json(result.rows); // Return the post details as JSON
   } catch (error: any) {
