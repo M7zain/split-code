@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import Post from '@/app/ui/feed/Post';
 import { postData as hardcodedData } from '@/constants';
 import { PostsSkeleton } from '@/app/ui/skeletons';
+import SavedSplits from '../saved-splits/page';
 
 const BestMatch = () => {
   const { isSignedIn, isLoaded } = useUser(); // Check if user state is loaded
@@ -14,6 +15,8 @@ const BestMatch = () => {
   const [posts, setPosts] = useState(hardcodedData); // Use hardcoded data as fallback initially
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  
+  const [savedPostIds, setSavedPostIds] = useState<string[]>([]);
 
   // Fetch posts from the API
   const fetchPosts = async () => {
@@ -24,6 +27,18 @@ const BestMatch = () => {
       }
       const data = await response.json();
       setPosts(data);
+
+      // Set saved post IDs
+      const savedSplits = await fetch('/api/get-saved'); 
+
+      if (!savedSplits.ok) {
+        throw new Error('Failed to fetch saving status');
+      }
+      const saved = await savedSplits.json(); 
+
+      const savedIds = saved.map((post: { id: string }) => post.id);
+    
+      setSavedPostIds(savedIds);
     } catch (error) {
       console.error('Error fetching posts:', error);
       setError('Error fetching posts, displaying hardcoded data.');
@@ -66,6 +81,8 @@ const BestMatch = () => {
           description={data.content}
           difficulty={data.difficulty}
           id={data.id}
+          user_id={data.user_id}
+          isSaved={savedPostIds.includes(data.id)} // Pass saved state to the Post component
 
         />
       ))}
