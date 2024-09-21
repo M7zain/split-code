@@ -4,6 +4,7 @@ import { useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
 import Post from '@/app/ui/feed/Post';
 import { postData as hardcodedData } from '@/constants';
+import {  PostsSkeleton } from '@/app/ui/skeletons';
 
 const Feed = () => {
   const { isSignedIn, isLoaded } = useUser(); // Check if user state is loaded
@@ -50,7 +51,7 @@ const Feed = () => {
   }
 
   if (loading) {
-    return <div>Loading posts...</div>;
+    return <PostsSkeleton/>;
   }
 
   return (

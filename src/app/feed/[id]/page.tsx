@@ -8,6 +8,7 @@ import { MdDeleteOutline } from "react-icons/md";
 
 import Image from 'next/image';
 import Modal from "@/app/ui/Modal"
+import { PostSkeleton, UserSkeleton } from '@/app/ui/skeletons';
 const Page = ({ params }: { params: { id: string } }) => {
   const { isSignedIn, isLoaded, user } = useUser(); // Check if user is logged in
   const router = useRouter();
@@ -94,7 +95,7 @@ const Page = ({ params }: { params: { id: string } }) => {
   }
 
   if (loading) {
-    return <div>Loading post...</div>;
+    return <PostSkeleton/>;
   }
 
   if (error) {
@@ -126,8 +127,8 @@ const Page = ({ params }: { params: { id: string } }) => {
   
             </div>
           ) : (
-            <p>Loading post owner data...</p>
-          )}
+            <UserSkeleton/>
+  )}
 
       </div>
             {/* check if the post owner id match logged user Id */}

@@ -1,10 +1,11 @@
 'use client';
-import React, { ReactElement, useEffect, useState } from 'react';
+import React, { ReactElement, Suspense, useEffect, useState } from 'react';
 import Layout from './layout';
 import { useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
 import Post from '../ui/feed/Post';
 import { postData as hardcodedData } from '@/constants';
+import { PostsSkeleton } from '../ui/skeletons';
 
 const Feed = () => {
   const { isSignedIn, isLoaded } = useUser(); // Check if user state is loaded
@@ -51,10 +52,11 @@ const Feed = () => {
   }
 
   if (loading) {
-    return <div>Loading posts...</div>;
+    return <PostsSkeleton/>;
   }
 
   return (
+
     <div className="h-[100vh]">
       {error && <div className="text-red-500">{error}</div>}
       {posts.map((data: any) => (
@@ -69,6 +71,7 @@ const Feed = () => {
         />
       ))}
     </div>
+
   );
 };
 
