@@ -27,18 +27,23 @@ const BestMatch = () => {
       }
       const data = await response.json();
       setPosts(data);
+      
+         // Set saved post IDs
+         const savedSplits = await fetch('/api/get-saved'); 
 
-      // Set saved post IDs
-      const savedSplits = await fetch('/api/get-saved'); 
-
-      if (!savedSplits.ok) {
-        throw new Error('Failed to fetch saving status');
-      }
-      const saved = await savedSplits.json(); 
-
-      const savedIds = saved.map((post: { id: string }) => post.id);
-    
-      setSavedPostIds(savedIds);
+         if(savedSplits.status === 404){ 
+          setSavedPostIds([]);
+         }
+         else if (!savedSplits.ok) {
+           throw new Error('Failed to fetch saving status');
+         }else { 
+          const saved = await savedSplits.json(); 
+   
+          const savedIds = saved.map((post: { id: string }) => post.id);
+        
+          setSavedPostIds(savedIds);
+ 
+         }
     } catch (error) {
       console.error('Error fetching posts:', error);
       setError('Error fetching posts, displaying hardcoded data.');
