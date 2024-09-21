@@ -6,7 +6,6 @@ import type { NextRequest } from 'next/server';
 // Define a type for saved post rows
 type SavedPostRow = {
   post_id: string; // Adjust type if needed (e.g., number if IDs are numbers)
-  postIds: string[]; 
 };
 
 export async function GET(req: NextRequest) {
@@ -29,13 +28,14 @@ export async function GET(req: NextRequest) {
     }
 
     // Create a list of post IDs to fetch details from the posts table
-    const postIds = (savedPosts.rows as SavedPostRow[]).map((row) => row.post_id);
+    const postIds = (savedPosts.rows as SavedPostRow[]).map((row) => row.post_id) ;
     
     // Fetch details for the saved posts
     const result = await sql`
       SELECT * 
       FROM posts 
       WHERE id = ANY(${postIds});`;
+
 
     return NextResponse.json(result.rows); // Return the post details as JSON
   } catch (error: any) {
