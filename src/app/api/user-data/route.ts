@@ -18,7 +18,6 @@ export async function GET(req :NextRequest) {
   
     try {
         const response = await clerkClient.users.getUser(user_id);
-
         return NextResponse.json(response);
 
     }catch(error: any){ 
