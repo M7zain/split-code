@@ -49,13 +49,14 @@ const Search = () => {
 
   return (
     <div>
+      <h1 className='font-rb font-normal text-2xl text-slate-400 capitalize '>Search for a user: </h1>
       <input
         type="text"
         ref={search}
         placeholder="search"
         id="searchQuery"
         onChange={handleInputChange} 
-        className='disabled:border-8 border-slate-300 p-4 rounded-full mb-7' 
+        className='border-2 border-slate-300 enabled:border-splitOrange focus:border-splitOrange p-4 rounded-full mb-7 mt-5 w-full md:w-auto' 
       />
 
     

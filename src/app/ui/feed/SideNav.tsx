@@ -60,7 +60,7 @@ const SideNav = () => {
       <div className='md:hidden justify-evenly items-center p-3 bg-slate-200 drop-shadow-2xl rounded-t-3xl fixed bottom-0 left-0 right-0 z-20'>
         <div className='flex justify-evenly items-center w-full flex-row space-x-5'>
           <CiHome className='text-[#FB8500] text-[35px] sm:text-[45px] md:text-[50px]' onClick={() => router.push("/feed")} />
-          <CiSearch className='text-[#FB8500] text-[35px] sm:text-[45px] md:text-[50px]' />
+          <CiSearch className='text-[#FB8500] text-[35px] sm:text-[45px] md:text-[50px]'  onClick={() => router.push("/search")} />
           <button onClick={() => router.push("/feed/createsplit")} className='bg-splitOrange text-white font-rb text-xl rounded-xl p-2 flex flex-row justify-center items-center'>
             <CiCirclePlus className='text-[35px] sm:text-[45px] md:text-[50px]' />
           </button>
