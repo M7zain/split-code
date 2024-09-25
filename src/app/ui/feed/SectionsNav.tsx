@@ -23,13 +23,16 @@ const SectionsNav = () => {
       <h2 className="font-rb text-[24px] text-oliveGreen font-normal">Splits For You</h2>
 
       <div className="flex flex-row justify-between md:justify-start space-x-0 md:space-x-7 font-rb text-sm md:text-lg mt-4">
-        <button className={`${tab === 1 ? "text-splitOrange" : "text-oliveGreen"}`}onClick={() => {
-                                router.push("/feed/most-recent"); 
-                                setTab(1);
-                                }}>Most Recent</button>
-        <button className={`${tab === 2 ? "text-splitOrange" : "text-oliveGreen"}`} onClick={() =>{ router.push("/feed/best-match")
-          setTab(2);}
+        
+        <button className={`${tab === 1 ? "text-splitOrange" : "text-oliveGreen"}`} onClick={() =>{ router.push("/feed/best-match")
+          setTab(1);}
         }>Best Matches</button>
+     
+        <button className={`${tab === 2 ? "text-splitOrange" : "text-oliveGreen"}`}onClick={() => {
+                                router.push("/feed/most-recent"); 
+                                setTab(2);
+                                }}>Most Recent</button>
+
         <button className={`${tab === 3 ? "text-splitOrange" : "text-oliveGreen"}`} onClick={() => {router.push("/feed/saved-splits"); setTab(3);}}>Saved Splits</button>
       </div>
 
