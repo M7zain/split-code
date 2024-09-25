@@ -2,16 +2,22 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image';
+import { useSearchParams } from 'next/navigation';
 
-const Search = () => {
-  const search = useRef(null);
-  const [searchQuery, setSearchQuery] = useState('');
+const Search = ({ params }: { params: { searchUser: string } }) => {
+
+  const searchParams = useSearchParams(); 
+  const searchUser = searchParams.get("searchUser"); 
+
+
+  const [searchQuery, setSearchQuery] = useState(searchUser || '');
   const [users, setUsers] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
   // Debounce input changes and update search query after a delay
   useEffect(() => {
+ 
     if (!searchQuery) return; // Avoid running on initial render
 
     const timeoutId = setTimeout(() => {
@@ -24,8 +30,9 @@ const Search = () => {
   }, [searchQuery]);
 
   // Handle the input change and set the state
-  const handleInputChange = () => {
-    setSearchQuery(search.current.value); // Update searchQuery directly
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setSearchQuery(e.target.value); // Update searchQuery directly
+
   };
 
   // Fetch user data from the API
@@ -49,15 +56,17 @@ const Search = () => {
 
   return (
     <div>
-      <h1 className='font-rb font-normal text-2xl text-slate-400 capitalize '>Search for a user: </h1>
+      <div >
+    <h1 className='font-rb font-normal text-2xl text-slate-400 capitalize '>Search for a user: </h1>
       <input
         type="text"
-        ref={search}
         placeholder="search"
         id="searchQuery"
         onChange={handleInputChange} 
+        value={searchQuery}
         className='border-2 border-slate-300 enabled:border-splitOrange focus:border-splitOrange p-4 rounded-full mb-7 mt-5 w-full md:w-auto' 
       />
+      </div>
 
     
       {loading && <p>Loading...</p>}

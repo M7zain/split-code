@@ -2,19 +2,44 @@
 import logo from "../../../../public/logo.svg"
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CiBellOn } from "react-icons/ci";
 
 const SectionsNav = () => {
 
     const router = useRouter(); 
     const [tab , setTab] = useState(1); 
+
+
+    const [searchQuery, setSearchQuery] = useState('');
+
+    useEffect(() => { 
+
+    },[searchQuery]); 
+
+  function handleSearchSubmit(e) {
+    e.preventDefault(); 
+    if(searchQuery){ 
+      router.push(`/search?searchUser=${searchQuery}`); 
+    }
+  }
+
   return (
        
     <div className="p-6 bg-white sticky top-0 left-0 right-0 z-10">
 
     <div className="flex items-center justify-between md:justify-end">
       <Image src={logo} alt="split code logo" width={150} height={50} className="block md:hidden" /> 
+
+      <form onSubmit={handleSearchSubmit}>
+      <input
+        type="text"
+        placeholder="search"
+        id="searchQuery"
+        onChange={(e) => setSearchQuery(e.target.value)}
+        className='hidden md:block border-2 border-slate-300 enabled:border-splitOrange focus:border-splitOrange p-4 rounded-full mb-7 mt-5 mr-5 w-full md:w-auto' 
+      />
+      </form>
       <CiBellOn className='text-[#FB8500] text-[35px] sm:text-[45px] md:text-[50px]'/>
 
     </div>
