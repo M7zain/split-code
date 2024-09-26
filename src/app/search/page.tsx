@@ -3,8 +3,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 
-const Search = ({ params }: { params: { searchUser: string } }) => {
+const Search = () => {
 
   const searchParams = useSearchParams(); 
   const searchUser = searchParams.get("searchUser"); 
@@ -75,10 +76,12 @@ const Search = ({ params }: { params: { searchUser: string } }) => {
       {users && users.length > 0 && (
         <div>
           {users.map((user) => (
+            <Link href={`search/users/${user.id}`}>
             <div className='flex items-center w-full p-3 hover:bg-slate-200 rounded-xl '>
                 <Image src={user.imageUrl} alt={user.firstName+' '+ user.lastName} height={50} width={50} className='rounded-full'/> 
                 <p key={user.id} className='ml-2' >{user.firstName+" " + user.lastName}</p>
             </div>
+            </Link>
           ))}
         </div>
       )}
