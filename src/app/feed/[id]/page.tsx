@@ -9,6 +9,7 @@ import { MdDeleteOutline } from "react-icons/md";
 import Image from 'next/image';
 import Modal from "@/app/ui/Modal"
 import { PostSkeleton, UserSkeleton } from '@/app/ui/skeletons';
+import Link from 'next/link';
 
 
 const Page = ({ params }: { params: { id: string } }) => {
@@ -114,6 +115,7 @@ const Page = ({ params }: { params: { id: string } }) => {
       {postOwner ? (
             <div className="flex items-center space-x-4">
 
+            <Link href={`/search/users/${postOwner.id}`} className='flex items-center space-x-3'>
               {/* Display user's photo */}
               <Image 
                 src={postOwner.imageUrl} 
@@ -125,7 +127,7 @@ const Page = ({ params }: { params: { id: string } }) => {
 
                   {/* Display Full name */}
                   <p>{postOwner.firstName +' '+  postOwner.lastName}</p>
-   
+            </Link>
   
             </div>
           ) : (
@@ -160,8 +162,6 @@ const Page = ({ params }: { params: { id: string } }) => {
           <p className='text-lg  font-rb text-oliveGreen '>{post.content}</p>
           <p className='text-sm font-rb text-slate-500'>Posted on: {post.created_at}</p>
         </div>
-
-        
         </>
       ) : (
         <div>No post found</div>
