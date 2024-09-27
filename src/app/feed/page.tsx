@@ -22,7 +22,7 @@ const Feed = () => {
   // Fetch posts from the API
   const fetchPosts = async () => {
     try {
-      const response = await fetch('/api/get');
+      const response = await fetch('/api/get-best-matches');
       if (!response.ok) {
         throw new Error('Failed to fetch posts');
       }
