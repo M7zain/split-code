@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { SignOutButton, UserButton, useUser } from '@clerk/nextjs';
 import { CiCirclePlus, CiSearch, CiHome, CiSettings } from 'react-icons/ci';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const SideNav = () => {
   const router = useRouter(); 
@@ -47,7 +48,9 @@ const SideNav = () => {
           <div className='font-rb text-xl mt-4'>
             <SignOutButton />
             <hr className="h-px my-3 bg-gray-400 border-0" />
-            <p>My Splits</p>
+            <Link href={`/search/users/${user.id}`}>
+              <p>My Splits</p>
+            </Link>
             <hr className="h-px my-3 bg-gray-400 border-0" />
             <p>Preferences</p>
             <hr className="h-px my-3 bg-gray-400 border-0" />
