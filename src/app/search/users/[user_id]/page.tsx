@@ -78,7 +78,12 @@ const UserPage = ({ params }: { params: { user_id: string } }) => {
       {userData && (
         <div key={userData.id} className='mt-10 md:mt-5'>
           <div className='flex flex-row items-center space-x-4'>
-            <Image src={userData.imageUrl} width={100} height={100} alt={userData.id} className='w-28 md:w-34 rounded-full' />
+
+          <div className='relative overflow-hidden bg-black w-28 md:w-34  h-28 md:h-28 rounded-full'>
+            <Image src={userData.imageUrl} alt="user image" objectFit='cover' fill={true} />
+          </div>
+     
+            {/* <Image src={userData.imageUrl} width={100} height={100} alt={userData.id} className='w-28 md:w-34 rounded-full'  /> */}
             <h1 className='font-rb text-2xl text-splitOrange'>
               {userData.firstName + " " + userData.lastName}
             </h1>

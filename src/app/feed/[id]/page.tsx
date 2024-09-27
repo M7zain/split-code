@@ -116,14 +116,13 @@ const Page = ({ params }: { params: { id: string } }) => {
             <div className="flex items-center space-x-4">
 
             <Link href={`/search/users/${postOwner.id}`} className='flex items-center space-x-3'>
+              
               {/* Display user's photo */}
-              <Image 
-                src={postOwner.imageUrl} 
-                alt="User's profile picture" 
-                className="rounded-full"
-                width={50} 
-                height={50}
-                />
+            <div className='relative overflow-hidden bg-black w-12 h-12 rounded-full'>
+                  <Image src={postOwner.imageUrl} alt="user image" objectFit='cover' fill={true} />
+            </div>
+
+
 
                   {/* Display Full name */}
                   <p>{postOwner.firstName +' '+  postOwner.lastName}</p>
