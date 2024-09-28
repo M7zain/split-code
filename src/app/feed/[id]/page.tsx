@@ -161,10 +161,14 @@ const Page = ({ params }: { params: { id: string } }) => {
           <h2 className='mt-3 text-xl capitalize font-rb text-splitOrange'>{post.title}</h2>
           <p className='text-lg  font-rb text-oliveGreen '>{post.content}</p>
         
+        { 
+        postOwner? 
+          null : 
           <div className='flex flex-row items-center justify-between '>
-             <Button href='/feed' buttonText='Apply'/>
-             
+            <Button href='/feed' buttonText='Apply'/>
           </div>
+        }
+  
     
 
           <p className='text-sm font-rb text-slate-500'>Posted on: {post.created_at}</p>
