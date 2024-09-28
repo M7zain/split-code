@@ -10,6 +10,7 @@ import Image from 'next/image';
 import Modal from "@/app/ui/Modal"
 import { PostSkeleton, UserSkeleton } from '@/app/ui/skeletons';
 import Link from 'next/link';
+import Button from '@/app/ui/Button';
 
 
 const Page = ({ params }: { params: { id: string } }) => {
@@ -150,17 +151,28 @@ const Page = ({ params }: { params: { id: string } }) => {
 
        
             
-          ) : null}
+          ) :        <p className='text-lg  font-rb text-oliveGreen '>{post.price ?  post.price : "Volunteer"}</p>}
       </div>
       
      <hr className="h-px mt-3 bg-slate-400 border-0"/>
       {post ? (
         <>
-        <div className='flex flex-col space-y-5'>
+        <div className='flex flex-col space-y-5 mt-5'>
           <h2 className='mt-3 text-xl capitalize font-rb text-splitOrange'>{post.title}</h2>
           <p className='text-lg  font-rb text-oliveGreen '>{post.content}</p>
+        
+          <div className='flex flex-row items-center justify-between '>
+             <Button href='/feed' buttonText='Apply'/>
+             
+          </div>
+    
+
           <p className='text-sm font-rb text-slate-500'>Posted on: {post.created_at}</p>
         </div>
+
+
+      
+
         </>
       ) : (
         <div>No post found</div>
