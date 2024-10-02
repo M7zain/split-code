@@ -48,7 +48,7 @@ const SideNav = () => {
           <div className='font-rb text-xl mt-4'>
             <SignOutButton />
             <hr className="h-px my-3 bg-gray-400 border-0" />
-            <Link href={`/search/users/${user.id}`}>
+            <Link href={`/search/users/${user?.id}`}>
               <p>My Splits</p>
             </Link>
             <hr className="h-px my-3 bg-gray-400 border-0" />

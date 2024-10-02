@@ -162,7 +162,7 @@ const Page = ({ params }: { params: { id: string } }) => {
           <p className='text-lg  font-rb text-oliveGreen '>{post.content}</p>
         
         { 
-        user.id ===postOwner? 
+        user.id === postOwner ? 
           null : 
           <div className='flex flex-row items-center justify-between '>
             <Button href='/feed' buttonText='Apply'/>
