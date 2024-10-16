@@ -10,7 +10,7 @@ const SavedSplits = () => {
   const { isSignedIn, isLoaded } = useUser();
   const router = useRouter();
 
-  const [posts, setPosts] = useState(hardcodedData);
+  const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -46,7 +46,7 @@ const SavedSplits = () => {
       
     } catch (error) {
       console.error('Error fetching posts:', error);
-      setError('Error fetching posts, displaying hardcoded data.');
+      //setError('Error fetching posts, displaying hardcoded data.');
     } finally {
       setLoading(false);
     }
@@ -75,6 +75,8 @@ const SavedSplits = () => {
   return (
     <div className="h-[100vh]">
       {error && <div className="text-red-500">{error}</div>}
+     
+     
       {posts.map((data: any) => (
         <Post
           key={data.id || data.title}
