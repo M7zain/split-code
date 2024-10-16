@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
 import Post from '@/app/ui/feed/Post';
-import { postData as hardcodedData } from '@/constants';
 import { PostsSkeleton } from '@/app/ui/skeletons';
+import NoPosts from '@/app/ui/NoPosts';
 
 const SavedSplits = () => {
   const { isSignedIn, isLoaded } = useUser();
@@ -77,7 +77,11 @@ const SavedSplits = () => {
       {error && <div className="text-red-500">{error}</div>}
      
      
-      {posts.map((data: any) => (
+      {posts.length === 0 ?
+      
+      <NoPosts/>
+      
+      :  (posts.map((data: any) => (
         <Post
           key={data.id || data.title}
           date={data.created_at}
@@ -90,7 +94,7 @@ const SavedSplits = () => {
           isSaved={savedPostIds.includes(data.id)} // Pass saved state to the Post component
 
         />
-      ))}
+      ))) }
     </div>
   );
 };
