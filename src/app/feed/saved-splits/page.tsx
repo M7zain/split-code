@@ -81,7 +81,6 @@ const SavedSplits = () => {
       
       <NoPosts/>
       
-      
       :  (posts.map((data: any) => (
         <Post
           key={data.id || data.title}
