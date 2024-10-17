@@ -83,7 +83,7 @@ const Post: React.FC<PostProps> = ({ date, title, position, description, difficu
     const weeksAgo = Math.floor(daysAgo / 7);
     if (weeksAgo < 4) return `${weeksAgo}w ago`;
     const monthsAgo = Math.floor(weeksAgo / 4.35);
-    if (monthsAgo < 12) return `${monthsAgo}mo ago`;
+    if (monthsAgo < 12) return `${monthsAgo+1}mo ago`;
     const yearsAgo = Math.floor(monthsAgo / 12);
     return `${yearsAgo}y ago`;
   }
