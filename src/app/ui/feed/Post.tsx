@@ -72,7 +72,7 @@ const Post: React.FC<PostProps> = ({ date, title, position, description, difficu
     const postDate = new Date(timestamp);
     const now = new Date();
     const secondsAgo = Math.floor((now.getTime() - postDate.getTime()) / 1000);
-
+  
     if (secondsAgo < 60) return `${secondsAgo}s ago`;
     const minutesAgo = Math.floor(secondsAgo / 60);
     if (minutesAgo < 60) return `${minutesAgo}min ago`;
@@ -82,11 +82,20 @@ const Post: React.FC<PostProps> = ({ date, title, position, description, difficu
     if (daysAgo < 7) return `${daysAgo}d ago`;
     const weeksAgo = Math.floor(daysAgo / 7);
     if (weeksAgo < 4) return `${weeksAgo}w ago`;
-    const monthsAgo = Math.floor(weeksAgo / 4.35);
-    if (monthsAgo < 12) return `${monthsAgo+1}mo ago`;
+  
+    // Handle months and years accurately
+    const yearDiff = now.getFullYear() - postDate.getFullYear();
+    const monthDiff = now.getMonth() - postDate.getMonth();
+    const dayDiff = now.getDate() - postDate.getDate();
+  
+    let monthsAgo = yearDiff * 12 + monthDiff;
+    if (dayDiff < 0) monthsAgo--;  // Correct if we haven't passed the same day in the current month yet
+  
+    if (monthsAgo < 12) return `${monthsAgo}mo ago`;
     const yearsAgo = Math.floor(monthsAgo / 12);
     return `${yearsAgo}y ago`;
   }
+  
 
   return (
     <div className='bg-white hover:bg-slate-200 p-3 rounded-lg'>
