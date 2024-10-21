@@ -1,21 +1,38 @@
 'use client'
 import logo from "../../../../public/logo.svg"
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { CiBellOn } from "react-icons/ci";
 
+
+function navigation(pathName: string) {
+  if (pathName === '/feed' || pathName === '/feed/best-match') {
+    return 1;
+  } else if (pathName === '/feed/most-recent') {
+    return 2;
+  } else if (pathName === '/feed/saved-splits') {
+    return 3;
+  }
+  return 0; // default case if the path doesn't match any of the expected paths
+}
+
+
+
 const SectionsNav = () => {
 
-    const router = useRouter(); 
-    const [tab , setTab] = useState(1); 
+    const router = useRouter();
+    const pathName = usePathname(); 
+    
 
 
     const [searchQuery, setSearchQuery] = useState('');
-
+ 
     useEffect(() => { 
 
-    },[searchQuery]); 
+    },[searchQuery]);
+
+    const [tab , setTab] = useState(navigation(pathName)); 
 
   function handleSearchSubmit(e) {
     e.preventDefault(); 
@@ -61,6 +78,7 @@ const SectionsNav = () => {
         <button className={`${tab === 3 ? "text-splitOrange" : "text-oliveGreen"}`} onClick={() => {router.push("/feed/saved-splits"); setTab(3);}}>Saved Splits</button>
       </div>
 
+     
       <hr className="h-px mt-3 bg-oliveGreen border-0"/>
     </div>
 
