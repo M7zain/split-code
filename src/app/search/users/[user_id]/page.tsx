@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'; 
 import Image from 'next/image';
 import Post from '@/app/ui/feed/Post';
+import { PostsSkeleton } from '@/app/ui/skeletons';
 
 interface User {
   id: string;
@@ -13,9 +14,12 @@ interface User {
 
 const UserPage = ({ params }: { params: { user_id: string } }) => {
   const [userData, setUserData] = useState<User | null>(null);
-  const [userPosts, setUserPosts] = useState<any[]>([]);  // Initialize as an empty array
-  const [savedPostIds, setSavedPostIds] = useState<string[]>([]);
+  const [userPosts, setUserPosts] = useState([]);  // Initialize as an empty array
+  const [loading, setLoading]  = useState(true); 
+  
   const [error, setError] = useState<Error | null>(null);
+
+  const [savedPostIds, setSavedPostIds] = useState<string[]>([]);
 
   // Fetch user data
   const fetchUserData = async (user_id: string) => {
@@ -30,21 +34,8 @@ const UserPage = ({ params }: { params: { user_id: string } }) => {
     }
   };
 
-  // Fetch user posts
-  const fetchUserPosts = async (user_id: string) => {
-    try {
-      const res = await fetch(`/api/get-user-splits?visited_user_id=${user_id}`);
-      if (!res.ok) throw new Error('Failed to fetch user posts');
-      const data = await res.json();
-      setUserPosts(data);
-    } catch (error) {
-      console.error('Error fetching user posts:', error);
-      setError(error as Error);
-    }
-  };
-
-  // Fetch saved posts
-  const fetchSavedPosts = async () => {
+   // Fetch saved posts
+   const fetchSavedPosts = async () => {
     try {
       const savedSplits = await fetch('/api/get-saved');
       if (savedSplits.status === 404) {
@@ -62,15 +53,38 @@ const UserPage = ({ params }: { params: { user_id: string } }) => {
     }
   };
 
+  // Fetch user posts
+  const fetchUserPosts = async (user_id: string) => {
+    try {
+      const res = await fetch(`/api/get-user-splits?visited_user_id=${user_id}`);
+      if (!res.ok) throw new Error('Failed to fetch user posts');
+      const data = await res.json();
+      setUserPosts(data);
+      
+      await fetchSavedPosts(); 
+
+
+    } catch (error) {
+      console.error('Error fetching user posts:', error);
+      setError(error as Error);
+    } finally{ 
+
+      setLoading(false); 
+
+    }
+  };
+
+ 
   useEffect(() => {
+
     fetchUserData(params.user_id);
     fetchUserPosts(params.user_id);
+
   }, [params.user_id]);
 
-  useEffect(() => {
-    fetchSavedPosts();
-  }, []);
-
+if(loading){ 
+  return <PostsSkeleton/>
+}
   return (
     <div>
       {error && <p>Error: {error.message}</p>}
