@@ -4,7 +4,7 @@ import { useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { CiEdit } from "react-icons/ci";
-import { MdDeleteOutline } from "react-icons/md";
+import { toast } from 'react-toastify'; // Optional: Use a library like react-toastify for feedback
 
 import Image from 'next/image';
 import Modal from "@/app/ui/Modal"
@@ -22,6 +22,9 @@ const Page = ({ params }: { params: { id: string } }) => {
   const [postOwner, setPostOwner] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  const [hasApplied, setHasApplied] = useState(false);
+
 
   // Fetch post from the API
   const fetchSplit = async (id: string) => {
@@ -55,29 +58,32 @@ const Page = ({ params }: { params: { id: string } }) => {
     }
   };
 
-  const deletePost = async (post_id: string) => {
-    try {
-      const response = await fetch(`/api/delete-split?id=${post_id}`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        }
-      });
-  
-      if (!response.ok) {
-        throw new Error('Error deleting post');
-      }
-  
-      router.push('/feed');  // Redirect to feed after deletion
-      // Handle successful deletion
-      alert("Post deleted successfully");
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Error deleting post');
-    }
-  };
-  
+// Inside the component...
+const applyToPost = async () => {
+  try {
+    const response = await fetch('/api/apply', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        post_id: post.id,   // ID of the post being applied to
+        user_id: user.id,   // ID of the logged-in user
+      }),
+    });
 
+    if (!response.ok) {
+      throw new Error('Failed to submit application.');
+    }
+
+    const result = await response.json();
+    toast.success('Application submitted successfully!'); // Optional toast notification
+    console.log(result.message);
+  } catch (error) {
+    console.error('Error applying to post:', error);
+    toast.error('Failed to submit application. Please try again.'); // Optional toast notification
+  }
+};
   // Fetch the post data when the component mounts
   useEffect(() => {
     if (!isSignedIn && isLoaded) {
@@ -162,10 +168,17 @@ const Page = ({ params }: { params: { id: string } }) => {
           <p className='text-lg  font-rb text-oliveGreen '>{post.content}</p>
         
         { 
-        user.id === postOwner ? 
-          null : 
+        !(user.id === postOwner) &&
           <div className='flex flex-row items-center justify-between '>
             <Button href='/feed' buttonText='Apply'/>
+
+
+{/* <button
+  onClick={applyToPost}
+  className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+>
+  Apply
+</button> */}
           </div>
         }
   
