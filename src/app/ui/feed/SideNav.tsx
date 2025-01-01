@@ -68,7 +68,13 @@ const SideNav = () => {
             <CiCirclePlus className='text-[35px] sm:text-[45px] md:text-[50px]' />
           </button>
           <CiSettings onClick={() => router.push("/feed/preferences")} className='text-[#FB8500] text-[35px] sm:text-[45px] md:text-[50px]' />
-          <UserButton />
+           
+            {/* Custom UserButton Navigation */}
+    <div onClick={() => router.push(`/search/users/${user?.id}`)} className="cursor-pointer">
+      <UserButton />
+    </div>
+
+        
         </div>
       </div>
     </>
