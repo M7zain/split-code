@@ -52,7 +52,7 @@ const SideNav = () => {
               <p>My Splits</p>
             </Link>
             <hr className="h-px my-3 bg-gray-400 border-0" />
-            <p>Preferences</p>
+            <Link href={`/feed/preferences`}>Preferences</Link>
             <hr className="h-px my-3 bg-gray-400 border-0" />
             <p>Contribute to projects</p>
           </div>
@@ -67,7 +67,7 @@ const SideNav = () => {
           <button onClick={() => router.push("/feed/createsplit")} className='bg-splitOrange text-white font-rb text-xl rounded-xl p-2 flex flex-row justify-center items-center'>
             <CiCirclePlus className='text-[35px] sm:text-[45px] md:text-[50px]' />
           </button>
-          <CiSettings className='text-[#FB8500] text-[35px] sm:text-[45px] md:text-[50px]' />
+          <CiSettings onClick={() => router.push("/feed/preferences")} className='text-[#FB8500] text-[35px] sm:text-[45px] md:text-[50px]' />
           <UserButton />
         </div>
       </div>
