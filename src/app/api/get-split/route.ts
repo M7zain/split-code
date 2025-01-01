@@ -4,8 +4,8 @@ import { getAuth } from "@clerk/nextjs/server";
 import type { NextRequest } from 'next/server';
 
 export async function GET(req: NextRequest) {
-  const { searchParams } = new URL(req.url);  // Parse the query parameters
-  const id = searchParams.get('id');          // Get the 'id' parameter
+  const { searchParams } = new URL(req.url);
+  const id = searchParams.get('id');
 
   const { userId } = getAuth(req);
 
@@ -19,11 +19,18 @@ export async function GET(req: NextRequest) {
 
   try {
     const { rows } = await sql`
-      SELECT * FROM posts 
-      WHERE id = ${id}
+      SELECT 
+        posts.*, 
+        fields.name AS field_name, 
+        prog_lang.name AS prog_lang_name
+      FROM posts
+      LEFT JOIN fields ON posts.field_id = fields.field_id
+      LEFT JOIN prog_lang ON posts.lang_id = prog_lang.lang_id
+      WHERE posts.id = ${id}
     `;
     return NextResponse.json(rows);
   } catch (error: any) {
+    console.log(error);
     return NextResponse.json(
       {
         message: 'Error fetching post',

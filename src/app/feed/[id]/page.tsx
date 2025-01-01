@@ -61,13 +61,16 @@ const Page = ({ params }: { params: { id: string } }) => {
           user_id: user.id,
         }),
       });
-      if (!response.ok) throw new Error('Failed to submit application.');
-      const result = await response.json();
+  
+      if (!response.ok) {
+        const { message } = await response.json();
+        throw new Error(message || 'Failed to submit application.');
+      } 
+  
       toast.success('Application submitted successfully!');
-      console.log(result.message);
-    } catch (err) {
+    } catch (err: any) {
       console.error('Error applying to post:', err);
-      toast.error('Failed to submit application. Please try again.');
+      toast.error(err.message || 'Failed to submit application. Please try again.');
     }
   };
 
@@ -112,11 +115,20 @@ const Page = ({ params }: { params: { id: string } }) => {
         ) : <p className='text-lg font-rb text-oliveGreen '>{post.price ? post.price : "Volunteer"}</p>}
       </div>
       <hr className="h-px mt-3 bg-slate-400 border-0" />
-      {post ? (
+      {post ? ( 
         <>
           <div className='flex flex-col space-y-5 mt-5'>
             <h2 className='mt-3 text-xl capitalize font-rb text-splitOrange'>{post.title}</h2>
             <p className='text-lg font-rb text-oliveGreen'>{post.content}</p>
+
+            <div>
+        <p className="text-md font-rb text-gray-700">
+          <strong>Field:</strong> {post.field_name || "N/A"}
+        </p>
+        <p className="text-md font-rb text-gray-700">
+          <strong>Programming Language:</strong> {post.prog_lang_name || "N/A"}
+        </p>
+      </div>
             {user.id !== postOwner?.id && (
               <button
                 onClick={applyToPost}

@@ -7,7 +7,7 @@ export async function POST(req: NextRequest) {
   const { userId } = getAuth(req);
 
   if (!userId) {
-    return NextResponse.json({ error: 'not authenticated' }, { status: 401 });
+    return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
   }
 
   try {
@@ -17,7 +17,20 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Post ID and User ID are required.' }, { status: 400 });
     }
 
-    // Insert application into the database using Vercel Postgres
+    // Check if the user has already applied to the post
+    const existingApplication = await sql`
+      SELECT * FROM applications 
+      WHERE post_id = ${post_id} AND user_id = ${user_id}
+    `;
+
+    if (existingApplication.rowCount > 0) {
+      return NextResponse.json(
+        { message: 'You have already applied to this post.' },
+        { status: 400 }
+      );
+    }
+
+    // Insert new application
     await sql`
       INSERT INTO applications (post_id, user_id, applied_at)
       VALUES (${post_id}, ${user_id}, NOW());
