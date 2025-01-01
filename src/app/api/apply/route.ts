@@ -19,12 +19,14 @@ export async function POST(req: NextRequest) {
 
     // Insert application into the database using Vercel Postgres
     await sql`
-      INSERT INTO applications (post_id, user_id, created_at)
+      INSERT INTO applications (post_id, user_id, applied_at)
       VALUES (${post_id}, ${user_id}, NOW());
     `;
 
     return NextResponse.json({ message: 'Application submitted successfully.' }, { status: 200 });
   } catch (error: any) {
+    console.error('Error submitting application:', error);
+
     return NextResponse.json(
       {
         message: 'Error submitting application',

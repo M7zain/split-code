@@ -170,15 +170,14 @@ const applyToPost = async () => {
         { 
         !(user.id === postOwner) &&
           <div className='flex flex-row items-center justify-between '>
-            <Button href='/feed' buttonText='Apply'/>
+            {/* <Button href='/feed' buttonText='Apply'/> */}
 
-
-{/* <button
+ <button
   onClick={applyToPost}
-  className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+  className="bg-splitOrange text-white px-4 py-2 rounded hover:bg-splitOrange"
 >
   Apply
-</button> */}
+</button> 
           </div>
         }
   
