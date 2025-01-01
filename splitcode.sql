@@ -19,6 +19,21 @@ CREATE TABLE IF NOT EXISTS public.users (
 );
 
 
+
+
+CREATE TABLE IF NOT EXISTS public.posts
+(
+    id integer NOT NULL DEFAULT nextval('posts_id_seq'::regclass),
+    user_id character varying(255) COLLATE pg_catalog."default",
+    title character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    "position" character varying(255) COLLATE pg_catalog."default",
+    content text COLLATE pg_catalog."default",
+    difficulty character varying(255) COLLATE pg_catalog."default",
+    created_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT posts_pkey PRIMARY KEY (id)
+)
+
+
 ALTER TABLE public.posts
 ADD COLUMN field_id INT,
 ADD COLUMN lang_id INT,
@@ -26,6 +41,8 @@ ADD CONSTRAINT posts_field_id_fkey FOREIGN KEY (field_id)
     REFERENCES public.fields (field_id) ON UPDATE CASCADE ON DELETE SET NULL,
 ADD CONSTRAINT posts_lang_id_fkey FOREIGN KEY (lang_id)
     REFERENCES public.prog_lang (lang_id) ON UPDATE CASCADE ON DELETE SET NULL;
+
+
 
 
 

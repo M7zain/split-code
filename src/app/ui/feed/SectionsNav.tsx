@@ -57,7 +57,8 @@ const SectionsNav = () => {
         className='hidden md:block border-2 border-slate-300 enabled:border-splitOrange focus:border-splitOrange p-4 rounded-full mb-7 mt-5 mr-5 w-full md:w-auto' 
       />
       </form>
-      <CiBellOn className='text-[#FB8500] text-[35px] sm:text-[45px] md:text-[50px]'/>
+
+      <CiBellOn onClick={() => router.push("/feed/applications")} className='text-[#FB8500] text-[35px] sm:text-[45px] md:text-[50px] cursor-pointer'/>
 
     </div>
 
